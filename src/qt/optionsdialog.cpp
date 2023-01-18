@@ -91,9 +91,16 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
         ui->digits->addItem(digits, digits);
     }
     
-    /* Theme selector */
-    ui->theme->addItem(QString("UKY-blue"), QVariant("drkblue"));
-    
+    /* Theme selector 
+TODO - BROKEN THEME LIST ON CORE 
+
+
+
+
+ui->theme->addItem(QString("UKY-blue"), QVariant("drkblue"));
+
+
+*/     
     /* Language selector */
     QDir translations(":translations");
 
