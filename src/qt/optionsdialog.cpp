@@ -52,7 +52,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 
     /* Network elements init */
 #ifndef USE_UPNP
-    ui->mapPortUpnp->setEnabled(false);
+    ui->mapPortUpnp->setEnabled(true);
 #endif
 
     ui->proxyIp->setEnabled(false);
