@@ -14,7 +14,7 @@ import os
 import os.path
 import sys
 import hashlib
-import ukkey_hash
+import volkshash_hash
 import datetime
 import time
 from collections import namedtuple
@@ -59,7 +59,7 @@ def calc_hdr_hash(blk_hdr):
 	#hash2_o = hash2.digest()
 
 	#return hash2_o
-        pow_hash = ukkey_hash.getPoWHash(blk_hdr)
+        pow_hash = volkshash_hash.getPoWHash(blk_hdr)
         return pow_hash
 
 def calc_hash_str(blk_hdr):

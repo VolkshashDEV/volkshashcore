@@ -1,5 +1,5 @@
-Building Ukkey
+Building Volkshash
 =============
 
 See doc/build-*.md for instructions on building the various
-elements of the Ukkey Core reference implementation of Ukkey.
+elements of the Volkshash Core reference implementation of Volkshash.

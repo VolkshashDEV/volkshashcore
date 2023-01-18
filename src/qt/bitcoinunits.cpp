@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("Ukkey");
-            case mUKY: return QString("Milli-Ukkey (1 / 1" THIN_SP_UTF8 "000)");
-            case uUKY: return QString("Micro-Ukkey (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case monkeys: return QString("Ten Nano-Ukkey (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case UKY: return QString("Volkshash");
+            case mUKY: return QString("Milli-Volkshash (1 / 1" THIN_SP_UTF8 "000)");
+            case uUKY: return QString("Micro-Volkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case monkeys: return QString("Ten Nano-Volkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("TestUkkeys");
-            case mUKY: return QString("Milli-TestUkkey (1 / 1" THIN_SP_UTF8 "000)");
-            case uUKY: return QString("Micro-TestUkkey (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case monkeys: return QString("Ten Nano-TestUkkey (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case UKY: return QString("TestVolkshashs");
+            case mUKY: return QString("Milli-TestVolkshash (1 / 1" THIN_SP_UTF8 "000)");
+            case uUKY: return QString("Micro-TestVolkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case monkeys: return QString("Ten Nano-TestVolkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }

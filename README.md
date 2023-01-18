@@ -1,36 +1,36 @@
-Ukkey Core staging tree 0.13.0
+Volkshash Core staging tree 0.13.0
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org/ukkeypay/ukkey.svg?branch=master)](https://travis-ci.org/ukkeypay/ukkey) `develop:` [![Build Status](https://travis-ci.org/ukkeypay/ukkey.svg?branch=develop)](https://travis-ci.org/ukkeypay/ukkey/branches)
+`master:` [![Build Status](https://travis-ci.org/volkshashpay/volkshash.svg?branch=master)](https://travis-ci.org/volkshashpay/volkshash) `develop:` [![Build Status](https://travis-ci.org/volkshashpay/volkshash.svg?branch=develop)](https://travis-ci.org/volkshashpay/volkshash/branches)
 
-https://blog.ukkey3.space
+https://blog.volkshash3.space
 
 
-What is Ukkey?
+What is Volkshash?
 ----------------
 
-Ukkey is an experimental digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Ukkey uses peer-to-peer technology
+Volkshash is an experimental digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Volkshash uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Ukkey Core is the name of the open
+are carried out collectively by the network. Volkshash Core is the name of the open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Ukkey Core software, see https://www.ukkey.org/get-ukkey/.
+the Volkshash Core software, see https://www.volkshash.org/get-volkshash/.
 
 
 License
 -------
 
-Ukkey Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Volkshash Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/ukkeypay/ukkey/tags) are created to indicate new official,
-stable release versions of Ukkey Core.
+[Tags](https://github.com/volkshashpay/volkshash/tags) are created to indicate new official,
+stable release versions of Volkshash Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -66,7 +66,7 @@ Translations
 ------------
 
 Changes to translations as well as new translations can be submitted to
-[Ukkey Core's Transifex page](https://www.transifex.com/projects/p/ukkey/).
+[Volkshash Core's Transifex page](https://www.transifex.com/projects/p/volkshash/).
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.
@@ -74,4 +74,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.ukkey.org/forum/topic/ukkey-worldwide-collaboration.88/).
+Translators should also follow the [forum](https://www.volkshash.org/forum/topic/volkshash-worldwide-collaboration.88/).

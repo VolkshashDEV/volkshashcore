@@ -1,7 +1,7 @@
 The [pull-tester](/qa/pull-tester/) folder contains a script to call
 multiple tests from the [rpc-tests](/qa/rpc-tests/) folder.
 
-Every pull request to the Ukkey Core repository is built and run through
+Every pull request to the Volkshash Core repository is built and run through
 the regression test suite. You can also run all or only individual
 tests locally.
 
@@ -50,9 +50,9 @@ Possible options, which apply to each individual test run:
 
 ```
   -h, --help            show this help message and exit
-  --nocleanup           Leave ukkeyds and test.* datadir on exit or error
-  --noshutdown          Don't stop ukkeyds after the test execution
-  --srcdir=SRCDIR       Source directory containing ukkeyd/ukkey-cli
+  --nocleanup           Leave volkshashds and test.* datadir on exit or error
+  --noshutdown          Don't stop volkshashds after the test execution
+  --srcdir=SRCDIR       Source directory containing volkshashd/volkshash-cli
                         (default: ../../src)
   --tmpdir=TMPDIR       Root directory for datadirs
   --tracerpc            Print out all RPC calls as they are made
@@ -77,7 +77,7 @@ to recover with:
 
 ```bash
 rm -rf cache
-killall ukkeyd
+killall volkshashd
 ```
 
 Writing tests

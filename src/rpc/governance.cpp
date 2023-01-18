@@ -171,7 +171,7 @@ UniValue gobject_prepare(const JSONRPCRequest& request)
 
     // This command is dangerous because it consumes 5 UKKEY irreversibly.
     // If params are lost, it's very hard to bruteforce them and yet
-    // users ignore all instructions on ukkeycentral etc. and do not save them...
+    // users ignore all instructions on volkshashcentral etc. and do not save them...
     // Let's log them here and hope users do not mess with debug.log
     LogPrintf("gobject_prepare -- params: %s %s %s %s, data: %s, hash: %s\n",
                 request.params[1].get_str(), request.params[2].get_str(),
@@ -363,7 +363,7 @@ void gobject_vote_conf_help()
 {
     throw std::runtime_error(
                 "gobject vote-conf <governance-hash> <vote> <vote-outcome>\n"
-                "Vote on a governance object by masternode configured in ukkey.conf\n"
+                "Vote on a governance object by masternode configured in volkshash.conf\n"
                 "\nArguments:\n"
                 "1. governance-hash   (string, required) hash of the governance object\n"
                 "2. vote              (string, required) vote, possible values: [funding|valid|delete|endorsed]\n"
@@ -419,7 +419,7 @@ UniValue gobject_vote_conf(const JSONRPCRequest& request)
         nFailed++;
         statusObj.push_back(Pair("result", "failed"));
         statusObj.push_back(Pair("errorMessage", "Can't find masternode by collateral output"));
-        resultsObj.push_back(Pair("ukkey.conf", statusObj));
+        resultsObj.push_back(Pair("volkshash.conf", statusObj));
         returnObj.push_back(Pair("overall", strprintf("Voted successfully %d time(s) and failed %d time(s).", nSuccessful, nFailed)));
         returnObj.push_back(Pair("detail", resultsObj));
         return returnObj;
@@ -442,7 +442,7 @@ UniValue gobject_vote_conf(const JSONRPCRequest& request)
         nFailed++;
         statusObj.push_back(Pair("result", "failed"));
         statusObj.push_back(Pair("errorMessage", "Failure to sign."));
-        resultsObj.push_back(Pair("ukkey.conf", statusObj));
+        resultsObj.push_back(Pair("volkshash.conf", statusObj));
         returnObj.push_back(Pair("overall", strprintf("Voted successfully %d time(s) and failed %d time(s).", nSuccessful, nFailed)));
         returnObj.push_back(Pair("detail", resultsObj));
         return returnObj;
@@ -458,7 +458,7 @@ UniValue gobject_vote_conf(const JSONRPCRequest& request)
         statusObj.push_back(Pair("errorMessage", exception.GetMessage()));
     }
 
-    resultsObj.push_back(Pair("ukkey.conf", statusObj));
+    resultsObj.push_back(Pair("volkshash.conf", statusObj));
 
     returnObj.push_back(Pair("overall", strprintf("Voted successfully %d time(s) and failed %d time(s).", nSuccessful, nFailed)));
     returnObj.push_back(Pair("detail", resultsObj));
@@ -1025,7 +1025,7 @@ UniValue gobject_getcurrentvotes(const JSONRPCRequest& request)
             "  list               - List governance objects (can be filtered by signal and/or object type)\n"
             "  diff               - List differences since last diff\n"
             "  vote-alias         - Vote on a governance object by masternode alias (using masternode.conf setup)\n"
-            "  vote-conf          - Vote on a governance object by masternode configured in ukkey.conf\n"
+            "  vote-conf          - Vote on a governance object by masternode configured in volkshash.conf\n"
             "  vote-many          - Vote on a governance object by all masternodes (using masternode.conf setup)\n"
             );
 }
@@ -1229,11 +1229,11 @@ UniValue getsuperblockbudget(const JSONRPCRequest& request)
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         okSafe argNames
   //  --------------------- ------------------------  -----------------------  ------ ----------
-    /* Ukkey features */
-    { "ukkey",               "getgovernanceinfo",      &getgovernanceinfo,      true,  {} },
-    { "ukkey",               "getsuperblockbudget",    &getsuperblockbudget,    true,  {"index"} },
-    { "ukkey",               "gobject",                &gobject,                true,  {} },
-    { "ukkey",               "voteraw",                &voteraw,                true,  {} },
+    /* Volkshash features */
+    { "volkshash",               "getgovernanceinfo",      &getgovernanceinfo,      true,  {} },
+    { "volkshash",               "getsuperblockbudget",    &getsuperblockbudget,    true,  {"index"} },
+    { "volkshash",               "gobject",                &gobject,                true,  {} },
+    { "volkshash",               "voteraw",                &voteraw,                true,  {} },
 
 };
 

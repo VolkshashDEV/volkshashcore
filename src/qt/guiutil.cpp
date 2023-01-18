@@ -134,7 +134,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Ukkey address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Volkshash address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -152,8 +152,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no ukkey: URI
-    if(!uri.isValid() || uri.scheme() != QString("ukkey"))
+    // return if URI is not valid or is no volkshash: URI
+    if(!uri.isValid() || uri.scheme() != QString("volkshash"))
         return false;
 
     SendCoinsRecipient rv;
@@ -222,13 +222,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert ukkey:// to ukkey:
+    // Convert volkshash:// to volkshash:
     //
-    //    Cannot handle this later, because ukkey:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because volkshash:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("ukkey://", Qt::CaseInsensitive))
+    if(uri.startsWith("volkshash://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "ukkey:");
+        uri.replace(0, 7, "volkshash:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -236,7 +236,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("ukkey:%1").arg(info.address);
+    QString ret = QString("volkshash:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -442,7 +442,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile(GetArg("-conf", BITCOIN_CONF_FILENAME));
 
-    /* Open ukkey.conf with the associated application */
+    /* Open volkshash.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -652,15 +652,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Ukkey Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Volkshash Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Ukkey Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Ukkey Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Volkshash Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Volkshash Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for "Ukkey Core*.lnk"
+    // check for "Volkshash Core*.lnk"
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -752,8 +752,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "ukkeycore.desktop";
-    return GetAutostartDir() / strprintf("ukkeycore-%s.lnk", chain);
+        return GetAutostartDir() / "volkshashcore.desktop";
+    return GetAutostartDir() / strprintf("volkshashcore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -792,13 +792,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a ukkeycore.desktop file to the autostart directory:
+        // Write a volkshashcore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Ukkey Core\n";
+            optionFile << "Name=Volkshash Core\n";
         else
-            optionFile << strprintf("Name=Ukkey Core (%s)\n", chain);
+            optionFile << strprintf("Name=Volkshash Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -819,7 +819,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Ukkey Core app
+    // loop through the list of startup items and try to find the Volkshash Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -864,7 +864,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add Ukkey Core app to startup item list
+        // add Volkshash Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

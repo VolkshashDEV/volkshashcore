@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.ukkey.Ukkey-Qt";
+        return @"org.volkshash.Volkshash-Qt";
     } else {
         return [self __bundleIdentifier];
     }

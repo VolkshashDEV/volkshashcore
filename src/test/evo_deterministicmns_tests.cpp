@@ -2,7 +2,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include "script/interpreter.h"
 #include "script/standard.h"

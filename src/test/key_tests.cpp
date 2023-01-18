@@ -9,7 +9,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <string>
 #include <vector>

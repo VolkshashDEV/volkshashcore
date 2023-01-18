@@ -9,7 +9,7 @@
 #include "sync.h"
 #include "utilstrencodings.h"
 #include "utilmoneystr.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 #include "test/test_random.h"
 
 #include <stdint.h>

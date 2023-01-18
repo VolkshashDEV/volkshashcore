@@ -80,13 +80,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your Ukkey addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>These are your Ukkey addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+        <source>These are your Volkshash addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>These are your Volkshash addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your Ukkey addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>These are your Ukkey addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
+        <source>These are your Volkshash addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>These are your Volkshash addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -312,14 +312,14 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../ukkey.cpp" line="+558"/>
-        <source>A fatal error occurred. Ukkey Core can no longer continue safely and will quit.</source>
-        <translation>A fatal error occurred. Ukkey Core can no longer continue safely and will quit.</translation>
+        <location filename="../volkshash.cpp" line="+558"/>
+        <source>A fatal error occurred. Volkshash Core can no longer continue safely and will quit.</source>
+        <translation>A fatal error occurred. Volkshash Core can no longer continue safely and will quit.</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="+1129"/>
-        <source>Ukkey Core</source>
-        <translation>Ukkey Core</translation>
+        <source>Volkshash Core</source>
+        <translation>Volkshash Core</translation>
     </message>
     <message>
         <location line="-986"/>
@@ -348,8 +348,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Send coins to a Ukkey address</source>
-        <translation>Send coins to a Ukkey address</translation>
+        <source>Send coins to a Volkshash address</source>
+        <translation>Send coins to a Volkshash address</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -358,8 +358,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Request payments (generates QR codes and ukkey: URIs)</source>
-        <translation>Request payments (generates QR codes and ukkey: URIs)</translation>
+        <source>Request payments (generates QR codes and volkshash: URIs)</source>
+        <translation>Request payments (generates QR codes and volkshash: URIs)</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -393,8 +393,8 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Ukkey Core</source>
-        <translation>Show information about Ukkey Core</translation>
+        <source>Show information about Volkshash Core</source>
+        <translation>Show information about Volkshash Core</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -483,8 +483,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Sign messages with your Ukkey addresses to prove you own them</source>
-        <translation>Sign messages with your Ukkey addresses to prove you own them</translation>
+        <source>Sign messages with your Volkshash addresses to prove you own them</source>
+        <translation>Sign messages with your Volkshash addresses to prove you own them</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -493,8 +493,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Verify messages to ensure they were signed with specified Ukkey addresses</source>
-        <translation>Verify messages to ensure they were signed with specified Ukkey addresses</translation>
+        <source>Verify messages to ensure they were signed with specified Volkshash addresses</source>
+        <translation>Verify messages to ensure they were signed with specified Volkshash addresses</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -603,8 +603,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Open a ukkey: URI or payment request</source>
-        <translation>Open a ukkey: URI or payment request</translation>
+        <source>Open a volkshash: URI or payment request</source>
+        <translation>Open a volkshash: URI or payment request</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -613,8 +613,8 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>Show the %1 help message to get a list with possible Ukkey command-line options</source>
-        <translation>Show the %1 help message to get a list with possible Ukkey command-line options</translation>
+        <source>Show the %1 help message to get a list with possible Volkshash command-line options</source>
+        <translation>Show the %1 help message to get a list with possible Volkshash command-line options</translation>
     </message>
     <message>
         <location line="+290"/>
@@ -658,10 +658,10 @@
     </message>
     <message numerus="yes">
         <location line="+372"/>
-        <source>%n active connection(s) to Ukkey network</source>
+        <source>%n active connection(s) to Volkshash network</source>
         <translation>
-            <numerusform>%n active connection to Ukkey network</numerusform>
-            <numerusform>%n active connections to Ukkey network</numerusform>
+            <numerusform>%n active connection to Volkshash network</numerusform>
+            <numerusform>%n active connections to Volkshash network</numerusform>
         </translation>
     </message>
     <message>
@@ -1105,8 +1105,8 @@
     </message>
     <message>
         <location line="+71"/>
-        <source>The entered address &quot;%1&quot; is not a valid Ukkey address.</source>
-        <translation>The entered address &quot;%1&quot; is not a valid Ukkey address.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Volkshash address.</source>
+        <translation>The entered address &quot;%1&quot; is not a valid Volkshash address.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1227,8 +1227,8 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Ukkey in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 UKY, 0.01 UKY, 0.1 UKY, 1 UKY and 10 UKY -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href=&quot;https://docs.ukkey.org/en/latest/wallets/ukkeycore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Ukkey in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 UKY, 0.01 UKY, 0.1 UKY, 1 UKY and 10 UKY -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href=&quot;https://docs.ukkey.org/en/latest/wallets/ukkeycore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Volkshash in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 UKY, 0.01 UKY, 0.1 UKY, 1 UKY and 10 UKY -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href=&quot;https://docs.volkshash.org/en/latest/wallets/volkshashcore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Volkshash in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 UKY, 0.01 UKY, 0.1 UKY, 1 UKY and 10 UKY -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href=&quot;https://docs.volkshash.org/en/latest/wallets/volkshashcore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1250,8 +1250,8 @@
     </message>
     <message>
         <location line="+10"/>
-        <source>%1 will download and store a copy of the Ukkey block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 will download and store a copy of the Ukkey block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+        <source>%1 will download and store a copy of the Volkshash block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>%1 will download and store a copy of the Volkshash block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1604,13 +1604,13 @@
     </message>
     <message>
         <location line="+117"/>
-        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Ukkey network, as detailed below.</source>
-        <translation>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Ukkey network, as detailed below.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Volkshash network, as detailed below.</source>
+        <translation>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Volkshash network, as detailed below.</translation>
     </message>
     <message>
         <location line="+19"/>
-        <source>Attempting to spend Ukkey that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Attempting to spend Ukkey that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+        <source>Attempting to spend Volkshash that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Attempting to spend Volkshash that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
     </message>
     <message>
         <location line="+63"/>
@@ -1723,8 +1723,8 @@
     </message>
     <message>
         <location line="+165"/>
-        <source>Amount of Ukkey to keep anonymized</source>
-        <translation>Amount of Ukkey to keep anonymized</translation>
+        <source>Amount of Volkshash to keep anonymized</source>
+        <translation>Amount of Volkshash to keep anonymized</translation>
     </message>
     <message>
         <location line="-129"/>
@@ -1788,8 +1788,8 @@
     </message>
     <message>
         <location line="+60"/>
-        <source>Automatically open the Ukkey Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the Ukkey Core client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the Volkshash Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the Volkshash Core client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1803,8 +1803,8 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Ukkey network through a SOCKS5 proxy.</source>
-        <translation>Connect to the Ukkey network through a SOCKS5 proxy.</translation>
+        <source>Connect to the Volkshash network through a SOCKS5 proxy.</source>
+        <translation>Connect to the Volkshash network through a SOCKS5 proxy.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1930,8 +1930,8 @@
     </message>
     <message>
         <location line="+25"/>
-        <source>Connect to the Ukkey network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Connect to the Ukkey network through a separate SOCKS5 proxy for Tor hidden services.</translation>
+        <source>Connect to the Volkshash network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Connect to the Volkshash network through a separate SOCKS5 proxy for Tor hidden services.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1986,9 +1986,9 @@
     <message>
         <location line="+21"/>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/ukkey/</source>
+https://www.transifex.com/projects/p/volkshash/</source>
         <translation>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/ukkey/</translation>
+https://www.transifex.com/projects/p/volkshash/</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -2088,8 +2088,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
         <location line="+53"/>
         <location line="+355"/>
         <location line="+258"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Ukkey network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Ukkey network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Volkshash network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Volkshash network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <location line="-364"/>
@@ -2451,8 +2451,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="-402"/>
-        <source>Cannot start ukkey: click-to-pay handler</source>
-        <translation>Cannot start ukkey: click-to-pay handler</translation>
+        <source>Cannot start volkshash: click-to-pay handler</source>
+        <translation>Cannot start volkshash: click-to-pay handler</translation>
     </message>
     <message>
         <location line="+103"/>
@@ -2473,8 +2473,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>URI cannot be parsed! This can be caused by an invalid Ukkey address or malformed URI parameters.</source>
-        <translation>URI cannot be parsed! This can be caused by an invalid Ukkey address or malformed URI parameters.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Volkshash address or malformed URI parameters.</source>
+        <translation>URI cannot be parsed! This can be caused by an invalid Volkshash address or malformed URI parameters.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -2589,9 +2589,9 @@ https://www.transifex.com/projects/p/ukkey/</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../ukkey.cpp" line="+132"/>
-        <source>Ukkey Core</source>
-        <translation>Ukkey Core</translation>
+        <location filename="../volkshash.cpp" line="+132"/>
+        <source>Volkshash Core</source>
+        <translation>Volkshash Core</translation>
     </message>
     <message>
         <location line="+49"/>
@@ -2610,8 +2610,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+137"/>
-        <source>Enter a Ukkey address (e.g. %1)</source>
-        <translation>Enter a Ukkey address (e.g. %1)</translation>
+        <source>Enter a Volkshash address (e.g. %1)</source>
+        <translation>Enter a Volkshash address (e.g. %1)</translation>
     </message>
     <message>
         <location line="+859"/>
@@ -2712,7 +2712,7 @@ https://www.transifex.com/projects/p/ukkey/</translation>
 <context>
     <name>QObject::QObject</name>
     <message>
-        <location filename="../ukkey.cpp" line="-41"/>
+        <location filename="../volkshash.cpp" line="-41"/>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation>Error: Specified data directory &quot;%1&quot; does not exist.</translation>
     </message>
@@ -3312,8 +3312,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Ukkey network.</source>
-        <translation>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Ukkey network.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Volkshash network.</source>
+        <translation>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Volkshash network.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3328,8 +3328,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="-14"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Ukkey network.</source>
-        <translation>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Ukkey network.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Volkshash network.</source>
+        <translation>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Volkshash network.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3665,8 +3665,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     <message>
         <location line="+33"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for ukkey transactions than the network can process.</source>
-        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for ukkey transactions than the network can process.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for volkshash transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for volkshash transactions than the network can process.</translation>
     </message>
     <message>
         <location line="-59"/>
@@ -3912,8 +3912,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+103"/>
-        <source>Warning: Invalid Ukkey address</source>
-        <translation>Warning: Invalid Ukkey address</translation>
+        <source>Warning: Invalid Volkshash address</source>
+        <translation>Warning: Invalid Volkshash address</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3950,8 +3950,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The Ukkey address to send the payment to</source>
-        <translation>The Ukkey address to send the payment to</translation>
+        <source>The Volkshash address to send the payment to</source>
+        <translation>The Volkshash address to send the payment to</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3999,8 +3999,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="-1046"/>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Ukkey than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Ukkey than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Volkshash than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Volkshash than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4014,8 +4014,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>A message that was attached to the ukkey: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Ukkey network.</source>
-        <translation>A message that was attached to the ukkey: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Ukkey network.</translation>
+        <source>A message that was attached to the volkshash: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Volkshash network.</source>
+        <translation>A message that was attached to the volkshash: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Volkshash network.</translation>
     </message>
     <message>
         <location line="+433"/>
@@ -4081,13 +4081,13 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Ukkey sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>You can sign messages/agreements with your addresses to prove you can receive Ukkey sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Volkshash sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>You can sign messages/agreements with your addresses to prove you can receive Volkshash sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The Ukkey address to sign the message with</source>
-        <translation>The Ukkey address to sign the message with</translation>
+        <source>The Volkshash address to sign the message with</source>
+        <translation>The Volkshash address to sign the message with</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -4128,8 +4128,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+17"/>
-        <source>Sign the message to prove you own this Ukkey address</source>
-        <translation>Sign the message to prove you own this Ukkey address</translation>
+        <source>Sign the message to prove you own this Volkshash address</source>
+        <translation>Sign the message to prove you own this Volkshash address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4159,13 +4159,13 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The Ukkey address the message was signed with</source>
-        <translation>The Ukkey address the message was signed with</translation>
+        <source>The Volkshash address the message was signed with</source>
+        <translation>The Volkshash address the message was signed with</translation>
     </message>
     <message>
         <location line="+33"/>
-        <source>Verify the message to ensure it was signed with the specified Ukkey address</source>
-        <translation>Verify the message to ensure it was signed with the specified Ukkey address</translation>
+        <source>Verify the message to ensure it was signed with the specified Volkshash address</source>
+        <translation>Verify the message to ensure it was signed with the specified Volkshash address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5042,9 +5042,9 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
 </context>
 <context>
-    <name>ukkey-core</name>
+    <name>volkshash-core</name>
     <message>
-        <location filename="../ukkeystrings.cpp" line="+36"/>
+        <location filename="../volkshashstrings.cpp" line="+36"/>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Bind to given address and always listen on it. Use [host]:port notation for IPv6</translation>
     </message>
@@ -5855,8 +5855,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="-400"/>
-        <source>Disable all Ukkey specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Disable all Ukkey specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</translation>
+        <source>Disable all Volkshash specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Disable all Volkshash specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</translation>
     </message>
     <message>
         <location line="-43"/>
@@ -6045,8 +6045,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>You are starting in lite mode, all Ukkey-specific functionality is disabled.</source>
-        <translation>You are starting in lite mode, all Ukkey-specific functionality is disabled.</translation>
+        <source>You are starting in lite mode, all Volkshash-specific functionality is disabled.</source>
+        <translation>You are starting in lite mode, all Volkshash-specific functionality is disabled.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -6495,8 +6495,8 @@ https://www.transifex.com/projects/p/ukkey/</translation>
     </message>
     <message>
         <location line="-504"/>
-        <source>Ukkey Core</source>
-        <translation>Ukkey Core</translation>
+        <source>Volkshash Core</source>
+        <translation>Volkshash Core</translation>
     </message>
     <message>
         <location line="+1"/>

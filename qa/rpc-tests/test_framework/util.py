@@ -206,7 +206,7 @@ def initialize_datadir(dirname, n):
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
     rpc_u, rpc_p = rpc_auth_pair(n)
-    with open(os.path.join(datadir, "ukkey.conf"), 'w', encoding='utf8') as f:
+    with open(os.path.join(datadir, "volkshash.conf"), 'w', encoding='utf8') as f:
         f.write("regtest=1\n")
         f.write("rpcuser=" + rpc_u + "\n")
         f.write("rpcpassword=" + rpc_p + "\n")
@@ -232,12 +232,12 @@ def rpc_url(i, rpchost=None):
 
 def wait_for_bitcoind_start(process, url, i):
     '''
-    Wait for ukkeyd to start. This means that RPC is accessible and fully initialized.
-    Raise an exception if ukkeyd exits during initialization.
+    Wait for volkshashd to start. This means that RPC is accessible and fully initialized.
+    Raise an exception if volkshashd exits during initialization.
     '''
     while True:
         if process.poll() is not None:
-            raise Exception('ukkeyd exited with status %i during initialization' % process.returncode)
+            raise Exception('volkshashd exited with status %i during initialization' % process.returncode)
         try:
             rpc = get_rpc_proxy(url, i)
             blocks = rpc.getblockcount()
@@ -271,10 +271,10 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
                 shutil.rmtree(os.path.join(cachedir,"node"+str(i)))
 
         set_genesis_mocktime()
-        # Create cache directories, run ukkeyds:
+        # Create cache directories, run volkshashds:
         for i in range(MAX_NODES):
             datadir=initialize_datadir(cachedir, i)
-            args = [ os.getenv("DASHD", "ukkeyd"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
+            args = [ os.getenv("DASHD", "volkshashd"), "-server", "-keypool=1", "-datadir="+datadir, "-discover=0", "-mocktime="+str(GENESISTIME) ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
             if extra_args is not None:
@@ -284,7 +284,7 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
                 stderr = sys.stdout
             bitcoind_processes[i] = subprocess.Popen(args, stderr=stderr)
             if os.getenv("PYTHON_DEBUG", ""):
-                print("initialize_chain: ukkeyd started, waiting for RPC to come up")
+                print("initialize_chain: volkshashd started, waiting for RPC to come up")
             wait_for_bitcoind_start(bitcoind_processes[i], rpc_url(i), i)
             if os.getenv("PYTHON_DEBUG", ""):
                 print("initialize_chain: RPC successfully started")
@@ -326,7 +326,7 @@ def initialize_chain(test_dir, num_nodes, cachedir, extra_args=None, redirect_st
         from_dir = os.path.join(cachedir, "node"+str(i))
         to_dir = os.path.join(test_dir,  "node"+str(i))
         shutil.copytree(from_dir, to_dir)
-        initialize_datadir(test_dir, i) # Overwrite port/rpcport in ukkey.conf
+        initialize_datadir(test_dir, i) # Overwrite port/rpcport in volkshash.conf
 
 def initialize_chain_clean(test_dir, num_nodes):
     """
@@ -358,11 +358,11 @@ def _rpchost_to_args(rpchost):
 
 def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=None, redirect_stderr=False):
     """
-    Start a ukkeyd and return RPC connection to it
+    Start a volkshashd and return RPC connection to it
     """
     datadir = os.path.join(dirname, "node"+str(i))
     if binary is None:
-        binary = os.getenv("DASHD", "ukkeyd")
+        binary = os.getenv("DASHD", "volkshashd")
     # RPC tests still depend on free transactions
     args = [ binary, "-datadir="+datadir, "-server", "-keypool=1", "-discover=0", "-rest", "-blockprioritysize=50000", "-mocktime="+str(get_mocktime()) ]
     # Don't try auto backups (they fail a lot when running tests)
@@ -377,7 +377,7 @@ def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=
 
     bitcoind_processes[i] = subprocess.Popen(args, stderr=stderr)
     if os.getenv("PYTHON_DEBUG", ""):
-        print("start_node: ukkeyd started, waiting for RPC to come up")
+        print("start_node: volkshashd started, waiting for RPC to come up")
     url = rpc_url(i, rpchost)
     wait_for_bitcoind_start(bitcoind_processes[i], url, i)
     if os.getenv("PYTHON_DEBUG", ""):
@@ -391,7 +391,7 @@ def start_node(i, dirname, extra_args=None, rpchost=None, timewait=None, binary=
 
 def start_nodes(num_nodes, dirname, extra_args=None, rpchost=None, timewait=None, binary=None, redirect_stderr=False):
     """
-    Start multiple ukkeyds, return RPC connections to them
+    Start multiple volkshashds, return RPC connections to them
     """
     if extra_args is None: extra_args = [ None for _ in range(num_nodes) ]
     if binary is None: binary = [ None for _ in range(num_nodes) ]

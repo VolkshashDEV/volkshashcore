@@ -14,7 +14,7 @@
 #include "util.h"
 #include "validation.h"
 
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <stdint.h>
 

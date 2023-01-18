@@ -6,17 +6,17 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #
-# mininode.py - Ukkey P2P network half-a-node
+# mininode.py - Volkshash P2P network half-a-node
 #
 # This python code was modified from ArtForz' public domain  half-a-node, as
 # found in the mini-node branch of http://github.com/jgarzik/pynode.
 #
-# NodeConn: an object which manages p2p connectivity to a ukkey node
+# NodeConn: an object which manages p2p connectivity to a volkshash node
 # NodeConnCB: a base class that describes the interface for receiving
 #             callbacks with network messages from a NodeConn
 # CBlock, CTransaction, CBlockHeader, CTxIn, CTxOut, etc....:
 #     data structures that should map to corresponding structures in
-#     ukkey/primitives
+#     volkshash/primitives
 # msg_block, msg_tx, msg_headers, etc.:
 #     data structures that represent network messages
 # ser_*, deser_*: functions that handle serialization/deserialization
@@ -38,7 +38,7 @@ import logging
 import copy
 from test_framework.siphash import siphash256
 
-import ukkey_hash
+import volkshash_hash
 
 BIP0031_VERSION = 60000
 MY_VERSION = 70210  # MIN_PEER_PROTO_VERSION
@@ -75,8 +75,8 @@ def sha256(s):
 def hash256(s):
     return sha256(sha256(s))
 
-def ukkeyhash(s):
-    return ukkey_hash.getPoWHash(s)
+def volkshashhash(s):
+    return volkshash_hash.getPoWHash(s)
 
 def ser_compact_size(l):
     r = b""
@@ -210,7 +210,7 @@ def FromHex(obj, hex_string):
 def ToHex(obj):
     return bytes_to_hex_str(obj.serialize())
 
-# Objects that map to ukkeyd objects, which can be serialized/deserialized
+# Objects that map to volkshashd objects, which can be serialized/deserialized
 
 class CAddress(object):
     def __init__(self):
@@ -472,8 +472,8 @@ class CBlockHeader(object):
             r += struct.pack("<I", self.nTime)
             r += struct.pack("<I", self.nBits)
             r += struct.pack("<I", self.nNonce)
-            self.sha256 = uint256_from_str(ukkeyhash(r))
-            self.hash = encode(ukkeyhash(r)[::-1], 'hex_codec').decode('ascii')
+            self.sha256 = uint256_from_str(volkshashhash(r))
+            self.hash = encode(volkshashhash(r)[::-1], 'hex_codec').decode('ascii')
 
     def rehash(self):
         self.sha256 = None
@@ -1181,7 +1181,7 @@ class msg_headers(object):
         self.headers = []
 
     def deserialize(self, f):
-        # comment in ukkeyd indicates these should be deserialized as blocks
+        # comment in volkshashd indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1489,7 +1489,7 @@ class NodeConn(asyncore.dispatcher):
             vt.addrFrom.port = 0
             self.send_message(vt, True)
 
-        print('MiniNode: Connecting to Ukkey Node IP # ' + dstaddr + ':' \
+        print('MiniNode: Connecting to Volkshash Node IP # ' + dstaddr + ':' \
             + str(dstport))
 
         try:

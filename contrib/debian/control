@@ -1,8 +1,8 @@
-Source: ukkey
+Source: volkshash
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@ukkey.org>
-Uploaders: Holger Schinzel <holger@ukkey.org>
+Maintainer: Holger Schinzel <holger@volkshash.org>
+Uploaders: Holger Schinzel <holger@volkshash.org>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.ukkey.org/
-Vcs-Git: git://github.com/ukkeypay/ukkey.git
-Vcs-Browser: https://github.com/ukkeypay/ukkey
+Homepage: https://www.volkshash.org/
+Vcs-Git: git://github.com/volkshashpay/volkshash.git
+Vcs-Browser: https://github.com/volkshashpay/volkshash
 
-Package: ukkeyd
+Package: volkshashd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Ukkey is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Ukkey uses peer-to-peer
+ Volkshash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Volkshash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Ukkey Core
+ and issuing money are carried out collectively by the network. Volkshash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, ukkeyd, and the CLI tool
- ukkey-cli to interact with the daemon.
+ This package provides the daemon, volkshashd, and the CLI tool
+ volkshash-cli to interact with the daemon.
 
-Package: ukkey-qt
+Package: volkshash-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Ukkey is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Ukkey uses peer-to-peer
+ Volkshash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Volkshash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Ukkey Core
+ and issuing money are carried out collectively by the network. Volkshash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Ukkey-Qt, a GUI for Ukkey based on Qt.
+ This package provides Volkshash-Qt, a GUI for Volkshash based on Qt.
 
-Package: ukkey-tx
+Package: volkshash-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Ukkey is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Ukkey uses peer-to-peer
+ Volkshash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Volkshash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Ukkey Core
+ and issuing money are carried out collectively by the network. Volkshash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides ukkey-tx, a command-line transaction creation
- tool which can be used without a ukkey daemon.  Some means of
+ This package provides volkshash-tx, a command-line transaction creation
+ tool which can be used without a volkshash daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

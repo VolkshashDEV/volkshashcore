@@ -12,7 +12,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/ukkey-config.h"
+#include "config/volkshash-config.h"
 #endif
 
 #include "compat.h"
@@ -42,7 +42,7 @@
 #define DBG( x ) 
 #endif
 
-//Ukkey only features
+//Volkshash only features
 
 extern bool fMasternodeMode;
 extern bool fLiteMode;
@@ -254,7 +254,7 @@ void RenameThreadPool(ctpl::thread_pool& tp, const char* baseName);
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("ukkey-%s", name);
+    std::string s = strprintf("volkshash-%s", name);
     RenameThread(s.c_str());
     try
     {

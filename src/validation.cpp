@@ -60,7 +60,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "Ukkey Core cannot be compiled without assertions."
+# error "Volkshash Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -713,7 +713,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
                                         hash.ToString(), ptxConflicting->GetHash().ToString()),
                                 REJECT_INVALID, "txlockreq-tx-mempool-conflict");
             }
-            // Transaction conflicts with mempool and RBF doesn't exist in Ukkey
+            // Transaction conflicts with mempool and RBF doesn't exist in Volkshash
             return state.Invalid(false, REJECT_CONFLICT, "txn-mempool-conflict");
         }
     }
@@ -1179,7 +1179,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     return nSubsidy;
 }
 
-    // Added founder's reward, by ukkeyHG
+    // Added founder's reward, by volkshashHG
 CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 
     int nFounderFee = 0;
@@ -1824,7 +1824,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("ukkey-scriptch");
+    RenameThread("volkshash-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2283,7 +2283,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
 
     // END UKY
 
-    // Added founder's reward, by ukkeyHG
+    // Added founder's reward, by volkshashHG
     CAmount founderPayment = GetFounderPayment(pindex->nHeight, blockReward);
     if (founderPayment > 0) {
         CScript FounderScript = GetScriptForDestination(CBitcoinAddress(Params().FounderAddress()).Get());

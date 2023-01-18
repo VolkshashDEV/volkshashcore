@@ -6,7 +6,7 @@
 #include "support/cleanse.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/ukkey-config.h"
+#include "config/volkshash-config.h"
 #endif
 
 #ifdef WIN32

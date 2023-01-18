@@ -38,7 +38,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * Ukkey system. There are three: the main network on which people trade goods
+ * Volkshash system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -91,8 +91,8 @@ public:
     const std::vector<std::string>& SporkAddresses() const { return vSporkAddresses; }
     int MinSporkKeys() const { return nMinSporkKeys; }
     bool BIP9CheckMasternodesUpgraded() const { return fBIP9CheckMasternodesUpgraded; }
-    const std::string& FounderAddress() const { return strFounderAddress; }       // ukkeyHG
-    double FounderFee() const { return dFounderFee; }       // ukkeyHG
+    const std::string& FounderAddress() const { return strFounderAddress; }       // volkshashHG
+    double FounderFee() const { return dFounderFee; }       // volkshashHG
 protected:
     CChainParams() {}
 
@@ -123,8 +123,8 @@ protected:
     std::vector<std::string> vSporkAddresses;
     int nMinSporkKeys;
     bool fBIP9CheckMasternodesUpgraded;
-    std::string strFounderAddress;         // ukkeyHG
-    double dFounderFee;         // ukkeyHG
+    std::string strFounderAddress;         // volkshashHG
+    double dFounderFee;         // volkshashHG
 };
 
 /**

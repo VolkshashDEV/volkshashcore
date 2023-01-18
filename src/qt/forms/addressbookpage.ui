@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../ukkey.qrc"/>
+  <include location="../volkshash.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/ukkey-config.h"
+#include "config/volkshash-config.h"
 #endif
 
 #include "intro.h"
@@ -215,8 +215,8 @@ bool Intro::pickDataDirectory()
         settings.setValue("strDataDirDefault", dataDirDefaultCurrent);
     }
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the ukkey.conf file in the default data directory
-     * (to be consistent with ukkeyd behavior)
+     * override -datadir in the volkshash.conf file in the default data directory
+     * (to be consistent with volkshashd behavior)
      */
     if(dataDir != dataDirDefaultCurrent)
         SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting

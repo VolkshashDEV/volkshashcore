@@ -5,7 +5,7 @@
 #include "util.h"
 
 #include "support/allocators/secure.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <boost/test/unit_test.hpp>
 

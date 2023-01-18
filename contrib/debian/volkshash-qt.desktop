@@ -1,13 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Ukkey Core
-Comment=Ukkey P2P Cryptocurrency
-Comment[de]=Verbinde mit dem Ukkey peer-to-peer Netzwerk
-Comment[fr]=Ukkey, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Ukkey, eşten eşe kriptografik sanal para birimi
-Exec=ukkey-qt %u
+Name=Volkshash Core
+Comment=Volkshash P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Volkshash peer-to-peer Netzwerk
+Comment[fr]=Volkshash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Volkshash, eşten eşe kriptografik sanal para birimi
+Exec=volkshash-qt %u
 Terminal=false
 Type=Application
-Icon=ukkey128
-MimeType=x-scheme-handler/ukkey;
+Icon=volkshash128
+MimeType=x-scheme-handler/volkshash;
 Categories=Office;Finance;

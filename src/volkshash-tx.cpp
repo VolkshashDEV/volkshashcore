@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/ukkey-config.h"
+#include "config/volkshash-config.h"
 #endif
 
 #include "base58.h"
@@ -54,10 +54,10 @@ static int AppInitRawTx(int argc, char* argv[])
     if (argc<2 || IsArgSet("-?") || IsArgSet("-h") || IsArgSet("-help"))
     {
         // First part of help message is specific to this utility
-        std::string strUsage = strprintf(_("%s ukkey-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = strprintf(_("%s volkshash-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  ukkey-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded ukkey transaction") + "\n" +
-              "  ukkey-tx [options] -create [commands]   " + _("Create hex-encoded ukkey transaction") + "\n" +
+              "  volkshash-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded volkshash transaction") + "\n" +
+              "  volkshash-tx [options] -create [commands]   " + _("Create hex-encoded volkshash transaction") + "\n" +
               "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());
@@ -735,7 +735,7 @@ static int CommandLineRawTx(int argc, char* argv[])
             if (argc < 2)
                 throw std::runtime_error("too few parameters");
 
-            // param: hex-encoded ukkey transaction
+            // param: hex-encoded volkshash transaction
             std::string strHexTx(argv[1]);
             if (strHexTx == "-")                 // "-" implies standard input
                 strHexTx = readStdin();

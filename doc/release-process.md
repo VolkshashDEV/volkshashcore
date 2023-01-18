@@ -1,9 +1,9 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/ukkeypay/ukkey/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations, see [translation_process.md](https://github.com/volkshashpay/volkshash/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/ukkeypay/ukkey/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/volkshashpay/volkshash/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -19,7 +19,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Ukkey
+* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Volkshash
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 
 ### First time / New builders
@@ -29,12 +29,12 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/ukkeypay/gitian.sigs.git
-	git clone https://github.com/ukkeypay/ukkey-detached-sigs.git
+	git clone https://github.com/volkshashpay/gitian.sigs.git
+	git clone https://github.com/volkshashpay/volkshash-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/ukkeypay/ukkey.git
+	git clone https://github.com/volkshashpay/volkshash.git
 
-### Ukkey Core maintainers/release engineers, update (commit) version in sources
+### Volkshash Core maintainers/release engineers, update (commit) version in sources
 
 - `configure.ac`:
     - `_CLIENT_VERSION_MAJOR`
@@ -68,7 +68,7 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./ukkey
+    pushd ./volkshash
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.12.3)
     git fetch
@@ -103,7 +103,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../ukkey/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../volkshash/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -111,50 +111,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url ukkey=/path/to/ukkey,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url volkshash=/path/to/volkshash,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Ukkey Core for Linux, Windows, and OS X:
+### Build and sign Volkshash Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit ukkey=v${VERSION} ../ukkey/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../ukkey/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/ukkey-*.tar.gz build/out/src/ukkey-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit volkshash=v${VERSION} ../volkshash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../volkshash/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/volkshash-*.tar.gz build/out/src/volkshash-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit ukkey=v${VERSION} ../ukkey/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../ukkey/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/ukkey-*-win-unsigned.tar.gz inputs/ukkey-win-unsigned.tar.gz
-    mv build/out/ukkey-*.zip build/out/ukkey-*.exe ../
+    ./bin/gbuild --memory 3000 --commit volkshash=v${VERSION} ../volkshash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../volkshash/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/volkshash-*-win-unsigned.tar.gz inputs/volkshash-win-unsigned.tar.gz
+    mv build/out/volkshash-*.zip build/out/volkshash-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit ukkey=v${VERSION} ../ukkey/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../ukkey/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/ukkey-*-osx-unsigned.tar.gz inputs/ukkey-osx-unsigned.tar.gz
-    mv build/out/ukkey-*.tar.gz build/out/ukkey-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit volkshash=v${VERSION} ../volkshash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../volkshash/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/volkshash-*-osx-unsigned.tar.gz inputs/volkshash-osx-unsigned.tar.gz
+    mv build/out/volkshash-*.tar.gz build/out/volkshash-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`ukkey-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`ukkey-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`ukkey-${VERSION}-win[32|64]-setup-unsigned.exe`, `ukkey-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`ukkey-${VERSION}-osx-unsigned.dmg`, `ukkey-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`volkshash-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`volkshash-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`volkshash-${VERSION}-win[32|64]-setup-unsigned.exe`, `volkshash-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`volkshash-${VERSION}-osx-unsigned.dmg`, `volkshash-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import ukkey/contrib/gitian-keys/*.pgp
+    gpg --import volkshash/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../ukkey/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../ukkey/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../ukkey/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../volkshash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../volkshash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../volkshash/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -172,25 +172,25 @@ Commit your signature to gitian.sigs:
 Wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [ukkey-detached-sigs](https://github.com/ukkeypay/ukkey-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [volkshash-detached-sigs](https://github.com/volkshashpay/volkshash-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../ukkey/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../ukkey/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../ukkey/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/ukkey-osx-signed.dmg ../ukkey-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../volkshash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../volkshash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../volkshash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/volkshash-osx-signed.dmg ../volkshash-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../ukkey/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../ukkey/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../ukkey/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/ukkey-*win64-setup.exe ../ukkey-${VERSION}-win64-setup.exe
-    mv build/out/ukkey-*win32-setup.exe ../ukkey-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../volkshash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../volkshash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../volkshash/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/volkshash-*win64-setup.exe ../volkshash-${VERSION}-win64-setup.exe
+    mv build/out/volkshash-*win32-setup.exe ../volkshash-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -212,23 +212,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-ukkey-${VERSION}-aarch64-linux-gnu.tar.gz
-ukkey-${VERSION}-arm-linux-gnueabihf.tar.gz
-ukkey-${VERSION}-i686-pc-linux-gnu.tar.gz
-ukkey-${VERSION}-x86_64-linux-gnu.tar.gz
-ukkey-${VERSION}-osx64.tar.gz
-ukkey-${VERSION}-osx.dmg
-ukkey-${VERSION}.tar.gz
-ukkey-${VERSION}-win32-setup.exe
-ukkey-${VERSION}-win32.zip
-ukkey-${VERSION}-win64-setup.exe
-ukkey-${VERSION}-win64.zip
+volkshash-${VERSION}-aarch64-linux-gnu.tar.gz
+volkshash-${VERSION}-arm-linux-gnueabihf.tar.gz
+volkshash-${VERSION}-i686-pc-linux-gnu.tar.gz
+volkshash-${VERSION}-x86_64-linux-gnu.tar.gz
+volkshash-${VERSION}-osx64.tar.gz
+volkshash-${VERSION}-osx.dmg
+volkshash-${VERSION}.tar.gz
+volkshash-${VERSION}-win32-setup.exe
+volkshash-${VERSION}-win32.zip
+volkshash-${VERSION}-win64-setup.exe
+volkshash-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the ukkey.org server*.
+space *do not upload these to the volkshash.org server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -238,20 +238,20 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the ukkey.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the volkshash.org server
 
-- Update ukkey.org
+- Update volkshash.org
 
 - Announce the release:
 
-  - Release on Ukkey forum: https://www.ukkey.org/forum/topic/official-announcements.54/
+  - Release on Volkshash forum: https://www.volkshash.org/forum/topic/official-announcements.54/
 
-  - Optionally Discord, twitter, reddit /r/Ukkeypay, ... but this will usually sort out itself
+  - Optionally Discord, twitter, reddit /r/Volkshashpay, ... but this will usually sort out itself
 
-  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~ukkey.org/+archive/ubuntu/ukkey)
+  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~volkshash.org/+archive/ubuntu/volkshash)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/ukkeypay/ukkey/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/volkshashpay/volkshash/releases/new) with a link to the archived release notes.
 
   - Celebrate

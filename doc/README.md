@@ -1,37 +1,37 @@
-Ukkey Core 0.13.0
+Volkshash Core 0.13.0
 =====================
 
-This is the official reference wallet for Ukkey digital currency and comprises the backbone of the Ukkey peer-to-peer network. You can [download Ukkey Core](https://www.ukkey.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Volkshash digital currency and comprises the backbone of the Volkshash peer-to-peer network. You can [download Volkshash Core](https://www.volkshash.org/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Ukkey on your native platform.
+The following are some helpful notes on how to run Volkshash on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/ukkey-qt` (GUI) or
-- `bin/ukkeyd` (headless)
+- `bin/volkshash-qt` (GUI) or
+- `bin/volkshashd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run ukkey-qt.exe.
+Unpack the files into a directory, and then run volkshash-qt.exe.
 
 ### OS X
 
-Drag Ukkey-Qt to your applications folder, and then run Ukkey-Qt.
+Drag Volkshash-Qt to your applications folder, and then run Volkshash-Qt.
 
 ### Need Help?
 
-* See the [Ukkey documentation](https://docs.ukkey.org)
+* See the [Volkshash documentation](https://docs.volkshash.org)
 for help and more information.
-* Ask for help on [Ukkey Nation Discord](http://ukkeychat.org)
-* Ask for help on the [Ukkey Forum](https://ukkey.org/forum)
+* Ask for help on [Volkshash Nation Discord](http://volkshashchat.org)
+* Ask for help on the [Volkshash Forum](https://volkshash.org/forum)
 
 Building
 ---------------------
-The following are developer notes on how to build Ukkey Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Volkshash Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build Ukkey Core on your native plat
 
 Development
 ---------------------
-The Ukkey Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Volkshash Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
@@ -57,8 +57,8 @@ The Ukkey Core repo's [root README](/README.md) contains relevant information on
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [Ukkey Forum](https://ukkey.org/forum), in the Development & Technical Discussion board.
-* Discuss on [Ukkey Nation Discord](http://ukkeychat.org)
+* Discuss on the [Volkshash Forum](https://volkshash.org/forum), in the Development & Technical Discussion board.
+* Discuss on [Volkshash Nation Discord](http://volkshashchat.org)
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

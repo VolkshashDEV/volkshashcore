@@ -4,7 +4,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.mininode import *
-from test_framework.test_framework import UkkeyTestFramework
+from test_framework.test_framework import VolkshashTestFramework
 from test_framework.util import *
 from time import *
 
@@ -21,7 +21,7 @@ MB_SIZE = 1000000 # C++ code use this coefficient to calc MB in mempool
 AUTO_IX_MEM_THRESHOLD = 0.1
 
 
-class AutoIXMempoolTest(UkkeyTestFramework):
+class AutoIXMempoolTest(VolkshashTestFramework):
     def __init__(self):
         super().__init__(13, 10, ["-maxmempool=%d" % MAX_MEMPOOL_SIZE])
         # set sender,  receiver

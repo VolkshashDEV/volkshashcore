@@ -4,7 +4,7 @@
 
 #include "chain.h"
 #include "versionbits.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 #include "test/test_random.h"
 #include "chainparams.h"
 #include "validation.h"

@@ -4,7 +4,7 @@
 
 #include "compressor.h"
 #include "util.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <stdint.h>
 

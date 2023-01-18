@@ -1,25 +1,25 @@
-# /etc/conf.d/ukkeyd: config file for /etc/init.d/ukkeyd
+# /etc/conf.d/volkshashd: config file for /etc/init.d/volkshashd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/ukkeycore/ukkey.conf"
+#BITCOIND_CONFIGFILE="/etc/volkshashcore/volkshash.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/ukkeyd"
+#BITCOIND_PIDDIR="/var/run/volkshashd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/ukkeyd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/volkshashd.pid"
 
-# Where to write ukkeyd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/ukkeyd"
+# Where to write volkshashd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/volkshashd"
 
-# User and group to own ukkeyd process
-#BITCOIND_USER="ukkeycore"
-#BITCOIND_GROUP="ukkeycore"
+# User and group to own volkshashd process
+#BITCOIND_USER="volkshashcore"
+#BITCOIND_GROUP="volkshashcore"
 
-# Path to ukkeyd executable
-#BITCOIND_BIN="/usr/bin/ukkeyd"
+# Path to volkshashd executable
+#BITCOIND_BIN="/usr/bin/volkshashd"
 
-# Nice value to run ukkeyd under
+# Nice value to run volkshashd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

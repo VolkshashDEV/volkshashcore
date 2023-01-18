@@ -5,7 +5,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "hash.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <stdint.h>
 

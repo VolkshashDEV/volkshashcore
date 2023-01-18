@@ -44,7 +44,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// UkkeyMiner
+// VolkshashMiner
 //
 
 //
@@ -210,7 +210,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
         SetTxPayload(coinbaseTx, cbTx);
     }
 
-    // Added founder's reward, by ukkeyHG
+    // Added founder's reward, by volkshashHG
     CAmount founderPayment = GetFounderPayment(nHeight, blockReward);
     if (founderPayment > 0) {
 //        LogPrintf("CreateNewBlock -- ########## founderPayment:%d \n", founderPayment);

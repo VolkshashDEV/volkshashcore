@@ -9,7 +9,7 @@
 #include "uint256.h"
 #include "arith_uint256.h"
 #include "version.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 #include "test/test_random.h"
 
 #include <vector>

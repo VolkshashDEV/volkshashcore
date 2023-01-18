@@ -2,7 +2,7 @@
 
 #include "cachemultimap.h"
 
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <algorithm>
 #include <iostream>

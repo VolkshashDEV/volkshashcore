@@ -7,7 +7,7 @@
 #include "key.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 #include "bip39.h"
 
 #include <boost/test/unit_test.hpp>

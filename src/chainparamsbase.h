@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between ukkey-cli and ukkeyd)
- * of a given instance of the Ukkey system.
+ * CBaseChainParams defines the base parameters (shared between volkshash-cli and volkshashd)
+ * of a given instance of the Volkshash system.
  */
 class CBaseChainParams
 {

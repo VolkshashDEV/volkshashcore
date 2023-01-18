@@ -6,13 +6,13 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/ukkey
-src/ukkeyd
-src/ukkey-cli
-src/ukkey-tx
-src/test/test_ukkey
-src/qt/test/test_ukkey-qt
-src/bench/bench_ukkey
+src/volkshash
+src/volkshashd
+src/volkshash-cli
+src/volkshash-tx
+src/test/test_volkshash
+src/qt/test/test_volkshash-qt
+src/bench/bench_volkshash
 
 # autoreconf
 Makefile.in
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/ukkey-config.h
-src/config/ukkey-config.h.in
+src/config/volkshash-config.h
+src/config/volkshash-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -81,12 +81,12 @@ libconftest.dylib*
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-ukkey-qt
-Ukkey-Qt.app
+volkshash-qt
+Volkshash-Qt.app
 
 # Unit-tests
 Makefile.test
-ukkey-qt_test
+volkshash-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -100,7 +100,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_ukkey.coverage/
+test_volkshash.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -118,15 +118,15 @@ qa/cache/*
 .autotools
 /doc/doxygen/
 
-libukkeyconsensus.pc
+libvolkshashconsensus.pc
 contrib/devtools/split-debug.sh
-src/qt/ukkey-qt.bash
+src/qt/volkshash-qt.bash
 qa/pull-tester/tests-config.sh
 
 #development symlinks
-ukkey-cli
-ukkeyd
-ukkey-qt
+volkshash-cli
+volkshashd
+volkshash-qt
 make
 
 /docker/bin

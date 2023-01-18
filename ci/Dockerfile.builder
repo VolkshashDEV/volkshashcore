@@ -18,9 +18,9 @@ RUN apt-get update && apt-get install -y \
 # Python stuff
 RUN pip3 install pyzmq # really needed?
 
-# ukkey_hash
-RUN git clone https://github.com/ukkeypay/ukkey_hash
-RUN cd ukkey_hash && python3 setup.py install
+# volkshash_hash
+RUN git clone https://github.com/volkshashpay/volkshash_hash
+RUN cd volkshash_hash && python3 setup.py install
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
@@ -28,8 +28,8 @@ ARG GROUP_ID=1000
 # add user with specified (or default) user/group ids
 ENV USER_ID ${USER_ID}
 ENV GROUP_ID ${GROUP_ID}
-RUN groupadd -g ${GROUP_ID} ukkey
-RUN useradd -u ${USER_ID} -g ukkey -s /bin/bash -m -d /ukkey ukkey
+RUN groupadd -g ${GROUP_ID} volkshash
+RUN useradd -u ${USER_ID} -g volkshash -s /bin/bash -m -d /volkshash volkshash
 
 # Extra packages
 ARG BUILD_TARGET=linux64
@@ -47,13 +47,13 @@ RUN \
   update-alternatives --set x86_64-w64-mingw32-g++  /usr/bin/x86_64-w64-mingw32-g++-posix; \
   exit 0
 
-RUN mkdir /ukkey-src && \
+RUN mkdir /volkshash-src && \
   mkdir -p /cache/ccache && \
   mkdir /cache/depends && \
   mkdir /cache/sdk-sources && \
-  chown $USER_ID:$GROUP_ID /ukkey-src && \
+  chown $USER_ID:$GROUP_ID /volkshash-src && \
   chown $USER_ID:$GROUP_ID /cache && \
   chown $USER_ID:$GROUP_ID /cache -R
-WORKDIR /ukkey-src
+WORKDIR /volkshash-src
 
-USER ukkey
+USER volkshash

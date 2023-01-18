@@ -12,10 +12,10 @@
 #include "script/sign.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/ukkeyconsensus.h"
+#include "script/volkshashconsensus.h"
 #endif
 
 #include <fstream>
@@ -154,9 +154,9 @@ void DoTest(const CScript& scriptPubKey, const CScript& scriptSig, int flags, co
 #if defined(HAVE_CONSENSUS_LIB)
     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
     stream << tx2;
-    int libconsensus_flags = flags & ukkeyconsensus_SCRIPT_FLAGS_VERIFY_ALL;
+    int libconsensus_flags = flags & volkshashconsensus_SCRIPT_FLAGS_VERIFY_ALL;
     if (libconsensus_flags == flags) {
-        BOOST_CHECK_MESSAGE(ukkeyconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, NULL) == expect,message);
+        BOOST_CHECK_MESSAGE(volkshashconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, NULL) == expect,message);
     }
 #endif
 }

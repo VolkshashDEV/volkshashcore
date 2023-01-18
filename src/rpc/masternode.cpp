@@ -148,8 +148,8 @@ void masternode_list_help()
             "  lastpaidblock  - Print the last block height a node was paid on the network\n"
             "  lastpaidtime   - Print the last time a node was paid on the network\n"
             "  lastseen       - Print timestamp of when a masternode was last seen on the network\n"
-            "  owneraddress   - Print the masternode owner Ukkey address\n"
-            "  payee          - Print the masternode payout Ukkey address (can be additionally filtered,\n"
+            "  owneraddress   - Print the masternode owner Volkshash address\n"
+            "  payee          - Print the masternode payout Volkshash address (can be additionally filtered,\n"
             "                   partial match)\n"
             "  protocol       - Print protocol of a masternode (can be additionally filtered, exact match)\n"
             "  keyid          - Print the masternode (not collateral) key id\n"
@@ -157,7 +157,7 @@ void masternode_list_help()
             "  sentinel       - Print sentinel version of a masternode (can be additionally filtered, exact match)\n"
             "  status         - Print masternode status: PRE_ENABLED / ENABLED / EXPIRED / SENTINEL_PING_EXPIRED / NEW_START_REQUIRED /\n"
             "                   UPDATE_REQUIRED / POSE_BAN / OUTPOINT_SPENT (can be additionally filtered, partial match)\n"
-            "  votingaddress  - Print the masternode voting Ukkey address\n"
+            "  votingaddress  - Print the masternode voting Volkshash address\n"
         );
 }
 
@@ -1299,13 +1299,13 @@ UniValue sentinelping(const JSONRPCRequest& request)
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         okSafe argNames
   //  --------------------- ------------------------  -----------------------  ------ ----------
-    { "ukkey",               "masternode",             &masternode,             true,  {} },
-    { "ukkey",               "masternodelist",         &masternodelist,         true,  {} },
-    { "ukkey",               "masternodebroadcast",    &masternodebroadcast,    true,  {} },
-    { "ukkey",               "getpoolinfo",            &getpoolinfo,            true,  {} },
-    { "ukkey",               "sentinelping",           &sentinelping,           true,  {} },
+    { "volkshash",               "masternode",             &masternode,             true,  {} },
+    { "volkshash",               "masternodelist",         &masternodelist,         true,  {} },
+    { "volkshash",               "masternodebroadcast",    &masternodebroadcast,    true,  {} },
+    { "volkshash",               "getpoolinfo",            &getpoolinfo,            true,  {} },
+    { "volkshash",               "sentinelping",           &sentinelping,           true,  {} },
 #ifdef ENABLE_WALLET
-    { "ukkey",               "privatesend",            &privatesend,            false, {} },
+    { "volkshash",               "privatesend",            &privatesend,            false, {} },
 #endif // ENABLE_WALLET
 };
 

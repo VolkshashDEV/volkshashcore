@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Ukkey"
-            VALUE "FileDescription",    "ukkey-tx (CLI Ukkey transaction editor utility)"
+            VALUE "CompanyName",        "Volkshash"
+            VALUE "FileDescription",    "volkshash-tx (CLI Volkshash transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "ukkey-tx"
+            VALUE "InternalName",       "volkshash-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "ukkey-tx.exe"
-            VALUE "ProductName",        "ukkey-tx"
+            VALUE "OriginalFilename",   "volkshash-tx.exe"
+            VALUE "ProductName",        "volkshash-tx"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

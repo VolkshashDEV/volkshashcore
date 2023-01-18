@@ -1,6 +1,6 @@
 [Protocol]
-exec=ukkey-qt '%u'
-protocol=ukkey
+exec=volkshash-qt '%u'
+protocol=volkshash
 input=none
 output=none
 helper=true

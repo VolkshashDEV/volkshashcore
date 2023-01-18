@@ -1,2 +1,2 @@
-contrib/ukkeyd.bash-completion	ukkeyd
-contrib/ukkey-cli.bash-completion    ukkey-cli
+contrib/volkshashd.bash-completion	volkshashd
+contrib/volkshash-cli.bash-completion    volkshash-cli

@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Ukkey"
-            VALUE "FileDescription",    "ukkeyd (Ukkey node with a JSON-RPC server)"
+            VALUE "CompanyName",        "Volkshash"
+            VALUE "FileDescription",    "volkshashd (Volkshash node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "ukkeyd"
+            VALUE "InternalName",       "volkshashd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "ukkeyd.exe"
-            VALUE "ProductName",        "ukkeyd"
+            VALUE "OriginalFilename",   "volkshashd.exe"
+            VALUE "ProductName",        "volkshashd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

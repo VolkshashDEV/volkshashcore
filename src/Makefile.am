@@ -27,23 +27,23 @@ BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
 BLS_LIBS=-lchiabls -lgmp
 
-LIBBITCOIN_SERVER=libukkey_server.a
-LIBBITCOIN_COMMON=libukkey_common.a
-LIBBITCOIN_CONSENSUS=libukkey_consensus.a
-LIBBITCOIN_CLI=libukkey_cli.a
-LIBBITCOIN_UTIL=libukkey_util.a
-LIBBITCOIN_CRYPTO=crypto/libukkey_crypto.a
-LIBBITCOINQT=qt/libukkeyqt.a
+LIBBITCOIN_SERVER=libvolkshash_server.a
+LIBBITCOIN_COMMON=libvolkshash_common.a
+LIBBITCOIN_CONSENSUS=libvolkshash_consensus.a
+LIBBITCOIN_CLI=libvolkshash_cli.a
+LIBBITCOIN_UTIL=libvolkshash_util.a
+LIBBITCOIN_CRYPTO=crypto/libvolkshash_crypto.a
+LIBBITCOINQT=qt/libvolkshashqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libukkey_zmq.a
+LIBBITCOIN_ZMQ=libvolkshash_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libukkeyconsensus.la
+LIBBITCOINCONSENSUS=libvolkshashconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libukkey_wallet.a
+LIBBITCOIN_WALLET=libvolkshash_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -68,15 +68,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += ukkeyd
+  bin_PROGRAMS += volkshashd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += ukkey-cli ukkey-tx
+  bin_PROGRAMS += volkshash-cli volkshash-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# ukkey core #
+# volkshash core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -216,12 +216,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libukkey_util_a-clientversion.$(OBJEXT): obj/build.h
+libvolkshash_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between ukkeyd and ukkey-qt
-libukkey_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libukkey_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_server_a_SOURCES = \
+# server: shared between volkshashd and volkshash-qt
+libvolkshash_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libvolkshash_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_server_a_SOURCES = \
   activemasternode.cpp \
   addrman.cpp \
   addrdb.cpp \
@@ -295,20 +295,20 @@ libukkey_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libukkey_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libukkey_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_zmq_a_SOURCES = \
+libvolkshash_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libvolkshash_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between ukkeyd and ukkey-qt, but only linked
+# wallet: shared between volkshashd and volkshash-qt, but only linked
 # when wallet enabled
-libukkey_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libukkey_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_wallet_a_SOURCES = \
+libvolkshash_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libvolkshash_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
@@ -321,9 +321,9 @@ libukkey_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libukkey_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
-crypto_libukkey_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
-crypto_libukkey_crypto_a_SOURCES = \
+crypto_libvolkshash_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
+crypto_libvolkshash_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libvolkshash_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -345,7 +345,7 @@ crypto_libukkey_crypto_a_SOURCES = \
   crypto/yespower/yespower.c
 
 # x11
-crypto_libukkey_crypto_a_SOURCES += \
+crypto_libvolkshash_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
   crypto/cubehash.c \
@@ -371,9 +371,9 @@ crypto_libukkey_crypto_a_SOURCES += \
   crypto/sph_types.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libukkey_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libukkey_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_consensus_a_SOURCES = \
+libvolkshash_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libvolkshash_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -392,7 +392,7 @@ libukkey_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/ukkeyconsensus.cpp \
+  script/volkshashconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -408,10 +408,10 @@ libukkey_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between ukkeyd, and ukkey-qt and non-server tools
-libukkey_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libukkey_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_common_a_SOURCES = \
+# common: shared between volkshashd, and volkshash-qt and non-server tools
+libvolkshash_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libvolkshash_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
   bip39.cpp \
@@ -435,9 +435,9 @@ libukkey_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libukkey_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libukkey_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_util_a_SOURCES = \
+libvolkshash_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libvolkshash_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_util_a_SOURCES = \
   bls/bls_ies.cpp \
   bls/bls_ies.h \
   bls/bls_worker.cpp \
@@ -460,31 +460,31 @@ libukkey_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libukkey_util_a_SOURCES += compat/glibc_compat.cpp
+libvolkshash_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += -Wl,--wrap=log2f -Wl,--wrap=__divmoddi4
 endif
 
-# cli: shared between ukkey-cli and ukkey-qt
-libukkey_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libukkey_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libukkey_cli_a_SOURCES = \
+# cli: shared between volkshash-cli and volkshash-qt
+libvolkshash_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libvolkshash_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshash_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libukkey_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libvolkshash_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# ukkeyd binary #
-ukkeyd_SOURCES = ukkeyd.cpp
-ukkeyd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ukkeyd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ukkeyd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# volkshashd binary #
+volkshashd_SOURCES = volkshashd.cpp
+volkshashd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+volkshashd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+volkshashd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ukkeyd_SOURCES += ukkeyd-res.rc
+volkshashd_SOURCES += volkshashd-res.rc
 endif
 
-ukkeyd_LDADD = \
+volkshashd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -497,37 +497,37 @@ ukkeyd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-ukkeyd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
+volkshashd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(BLS_LIBS)
 
-# ukkey-cli binary #
-ukkey_cli_SOURCES = ukkey-cli.cpp
-ukkey_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-ukkey_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ukkey_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# volkshash-cli binary #
+volkshash_cli_SOURCES = volkshash-cli.cpp
+volkshash_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+volkshash_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+volkshash_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ukkey_cli_SOURCES += ukkey-cli-res.rc
+volkshash_cli_SOURCES += volkshash-cli-res.rc
 endif
 
-ukkey_cli_LDADD = \
+volkshash_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
-ukkey_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
+volkshash_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(BLS_LIBS)
 #
 
-# ukkey-tx binary #
-ukkey_tx_SOURCES = ukkey-tx.cpp
-ukkey_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ukkey_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ukkey_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# volkshash-tx binary #
+volkshash_tx_SOURCES = volkshash-tx.cpp
+volkshash_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+volkshash_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+volkshash_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ukkey_tx_SOURCES += ukkey-tx-res.rc
+volkshash_tx_SOURCES += volkshash-tx-res.rc
 endif
 
-ukkey_tx_LDADD = \
+volkshash_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -535,22 +535,22 @@ ukkey_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-ukkey_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
+volkshash_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
 #
 
-# ukkeyconsensus library #
+# volkshashconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/ukkeyconsensus.h
-libukkeyconsensus_la_SOURCES = $(crypto_libukkey_crypto_a_SOURCES) $(libukkey_consensus_a_SOURCES)
+include_HEADERS = script/volkshashconsensus.h
+libvolkshashconsensus_la_SOURCES = $(crypto_libvolkshash_crypto_a_SOURCES) $(libvolkshash_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libukkeyconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libvolkshashconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libukkeyconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libukkeyconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
-libukkeyconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libukkeyconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libvolkshashconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libvolkshashconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
+libvolkshashconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libvolkshashconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -584,12 +584,12 @@ EXTRA_DIST = $(CTAES_DIST)
 EXTRA_DIST += $(IMMER_DIST)
 
 
-config/ukkey-config.h: config/stamp-h1
+config/volkshash-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/ukkey-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/volkshash-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/ukkey-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/ukkey-config.h.in
+$(top_srcdir)/$(subdir)/config/volkshash-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/volkshash-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

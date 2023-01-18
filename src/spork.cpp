@@ -112,7 +112,7 @@ void CSporkManager::CheckAndRemove()
 
 void CSporkManager::ProcessSpork(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Ukkey specific functionality
+    if(fLiteMode) return; // disable all Volkshash specific functionality
 
     if (strCommand == NetMsgType::SPORK) {
 

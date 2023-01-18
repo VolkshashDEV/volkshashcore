@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: ukkeyd.service
-Upstart: ukkeyd.conf
-OpenRC:  ukkeyd.openrc
-         ukkeyd.openrcconf
-CentOS:  ukkeyd.init
-OS X:    org.ukkey.ukkeyd.plist
+SystemD: volkshashd.service
+Upstart: volkshashd.conf
+OpenRC:  volkshashd.openrc
+         volkshashd.openrcconf
+CentOS:  volkshashd.init
+OS X:    org.volkshash.volkshashd.plist
 
 have been made available to assist packagers in creating node packages here.
 

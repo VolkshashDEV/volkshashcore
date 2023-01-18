@@ -6,7 +6,7 @@
 #include "data/proposals_valid.json.h"
 #include "data/proposals_invalid.json.h"
 
-#include "test/test_ukkey.h"
+#include "test/test_volkshash.h"
 
 #include <iostream>
 #include <fstream>

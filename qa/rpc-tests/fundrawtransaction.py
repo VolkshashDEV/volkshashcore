@@ -206,9 +206,9 @@ class RawTransactionsTest(BitcoinTestFramework):
 
         try:
             self.nodes[2].fundrawtransaction(rawtx, {'changeAddress': 'foobar'})
-            raise AssertionError("Accepted invalid ukkey address")
+            raise AssertionError("Accepted invalid volkshash address")
         except JSONRPCException as e:
-            assert("changeAddress must be a valid ukkey address" in e.error['message'])
+            assert("changeAddress must be a valid volkshash address" in e.error['message'])
 
 
         ############################################################

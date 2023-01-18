@@ -1,5 +1,5 @@
 ---
-name: "ukkey-dmg-signer"
+name: "volkshash-dmg-signer"
 suites:
 - "bionic"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/ukkeypay/ukkey-detached-sigs.git"
+- "url": "https://github.com/volkshashpay/volkshash-detached-sigs.git"
   "dir": "signature"
 files:
-- "ukkeycore-osx-unsigned.tar.gz"
+- "volkshashcore-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=ukkeycore-osx-unsigned.tar.gz
-  SIGNED=ukkeycore-osx-signed.dmg
+  UNSIGNED=volkshashcore-osx-unsigned.tar.gz
+  SIGNED=volkshashcore-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

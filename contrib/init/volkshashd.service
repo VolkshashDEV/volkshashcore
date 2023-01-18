@@ -1,15 +1,15 @@
 [Unit]
-Description=Ukkey's distributed currency daemon
+Description=Volkshash's distributed currency daemon
 After=network.target
 
 [Service]
-User=ukkeycore
-Group=ukkeycore
+User=volkshashcore
+Group=volkshashcore
 
 Type=forking
-PIDFile=/var/lib/ukkeyd/ukkeyd.pid
-ExecStart=/usr/bin/ukkeyd -daemon -pid=/var/lib/ukkeyd/ukkeyd.pid \
--conf=/etc/ukkeycore/ukkey.conf -datadir=/var/lib/ukkeyd -disablewallet
+PIDFile=/var/lib/volkshashd/volkshashd.pid
+ExecStart=/usr/bin/volkshashd -daemon -pid=/var/lib/volkshashd/volkshashd.pid \
+-conf=/etc/volkshashcore/volkshash.conf -datadir=/var/lib/volkshashd -disablewallet
 
 Restart=always
 PrivateTmp=true

@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Ukkey RPC command dispatcher.
+ * Volkshash RPC command dispatcher.
  */
 class CRPCTable
 {
