@@ -1,0 +1,25 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="ar">locale/ukkey_ar.qm</file>
+        <file alias="bg">locale/ukkey_bg.qm</file>
+        <file alias="de">locale/ukkey_de.qm</file>
+        <file alias="en">locale/ukkey_en.qm</file>
+        <file alias="es">locale/ukkey_es.qm</file>
+        <file alias="fi">locale/ukkey_fi.qm</file>
+        <file alias="fr">locale/ukkey_fr.qm</file>
+        <file alias="it">locale/ukkey_it.qm</file>
+        <file alias="ja">locale/ukkey_ja.qm</file>
+        <file alias="ko">locale/ukkey_ko.qm</file>
+        <file alias="nl">locale/ukkey_nl.qm</file>
+        <file alias="pl">locale/ukkey_pl.qm</file>
+        <file alias="pt">locale/ukkey_pt.qm</file>
+        <file alias="ru">locale/ukkey_ru.qm</file>
+        <file alias="sk">locale/ukkey_sk.qm</file>
+        <file alias="sv">locale/ukkey_sv.qm</file>
+        <file alias="th">locale/ukkey_th.qm</file>
+        <file alias="tr">locale/ukkey_tr.qm</file>
+        <file alias="vi">locale/ukkey_vi.qm</file>
+        <file alias="zh_CN">locale/ukkey_zh_CN.qm</file>
+        <file alias="zh_TW">locale/ukkey_zh_TW.qm</file>
+    </qresource>
+</RCC>

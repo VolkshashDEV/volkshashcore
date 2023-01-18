@@ -1,0 +1,6 @@
+usr/local/bin/ukkey-qt usr/bin
+share/pixmaps/ukkey32.xpm usr/share/pixmaps
+share/pixmaps/ukkey16.xpm usr/share/pixmaps
+share/pixmaps/ukkey128.png usr/share/pixmaps
+debian/ukkey-qt.desktop usr/share/applications
+debian/ukkey-qt.protocol usr/share/kde4/services/

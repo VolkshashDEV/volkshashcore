@@ -1,0 +1,22 @@
+[Unit]
+Description=Ukkey's distributed currency daemon
+After=network.target
+
+[Service]
+User=ukkeycore
+Group=ukkeycore
+
+Type=forking
+PIDFile=/var/lib/ukkeyd/ukkeyd.pid
+ExecStart=/usr/bin/ukkeyd -daemon -pid=/var/lib/ukkeyd/ukkeyd.pid \
+-conf=/etc/ukkeycore/ukkey.conf -datadir=/var/lib/ukkeyd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
