@@ -294,7 +294,7 @@ std::string CPrivateSendBaseSession::GetStateString() const
     }
 }
 
-// Definitions for static data members
+// Definitions for static data members TODO VOLKSHASH
 std::vector<CAmount> CPrivateSend::vecStandardDenominations;
 std::map<uint256, CPrivateSendBroadcastTx> CPrivateSend::mapDSTX;
 CCriticalSection CPrivateSend::cs_mapdstx;
