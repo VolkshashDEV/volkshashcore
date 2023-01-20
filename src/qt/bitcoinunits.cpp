@@ -19,9 +19,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(UKY);
-    unitlist.append(mUKY);
-    unitlist.append(uUKY);
+    unitlist.append(VHH);
+    unitlist.append(mVHH);
+    unitlist.append(uVHH);
     unitlist.append(monkeys);
     return unitlist;
 }
@@ -30,9 +30,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case UKY:
-    case mUKY:
-    case uUKY:
+    case VHH:
+    case mVHH:
+    case uVHH:
     case monkeys:
         return true;
     default:
@@ -46,9 +46,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("UKY");
-            case mUKY: return QString("mUKY");
-            case uUKY: return QString::fromUtf8("μUKY");
+            case VHH: return QString("VHH");
+            case mVHH: return QString("mVHH");
+            case uVHH: return QString::fromUtf8("μVHH");
             case monkeys: return QString("monkeys");
             default: return QString("???");
         }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("tUKY");
-            case mUKY: return QString("mtUKY");
-            case uUKY: return QString::fromUtf8("μtUKY");
+            case VHH: return QString("tVHH");
+            case mVHH: return QString("mtVHH");
+            case uVHH: return QString::fromUtf8("μtVHH");
             case monkeys: return QString("tmonkeys");
             default: return QString("???");
         }
@@ -72,9 +72,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("Volkshash");
-            case mUKY: return QString("Milli-Volkshash (1 / 1" THIN_SP_UTF8 "000)");
-            case uUKY: return QString("Micro-Volkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case VHH: return QString("Volkshash");
+            case mVHH: return QString("Milli-Volkshash (1 / 1" THIN_SP_UTF8 "000)");
+            case uVHH: return QString("Micro-Volkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case monkeys: return QString("Ten Nano-Volkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -83,9 +83,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UKY: return QString("TestVolkshashs");
-            case mUKY: return QString("Milli-TestVolkshash (1 / 1" THIN_SP_UTF8 "000)");
-            case uUKY: return QString("Micro-TestVolkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case VHH: return QString("TestVolkshashs");
+            case mVHH: return QString("Milli-TestVolkshash (1 / 1" THIN_SP_UTF8 "000)");
+            case uVHH: return QString("Micro-TestVolkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case monkeys: return QString("Ten Nano-TestVolkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -96,9 +96,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case UKY:  return 100000000;
-    case mUKY: return 100000;
-    case uUKY: return 100;
+    case VHH:  return 100000000;
+    case mVHH: return 100000;
+    case uVHH: return 100;
     case monkeys: return 1;
     default:   return 100000000;
     }
@@ -108,9 +108,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case UKY: return 8;
-    case mUKY: return 5;
-    case uUKY: return 2;
+    case VHH: return 8;
+    case mVHH: return 5;
+    case uVHH: return 2;
     case monkeys: return 0;
     default: return 0;
     }

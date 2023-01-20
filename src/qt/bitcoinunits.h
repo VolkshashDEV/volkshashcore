@@ -57,9 +57,9 @@ public:
      */
     enum Unit
     {
-        UKY,
-        mUKY,
-        uUKY,
+        VHH,
+        mVHH,
+        uVHH,
         monkeys
     };
 

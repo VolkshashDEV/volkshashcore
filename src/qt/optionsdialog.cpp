@@ -97,7 +97,7 @@ TODO - BROKEN THEME LIST ON CORE
 
 
 
-ui->theme->addItem(QString("UKY-blue"), QVariant("drkblue"));
+ui->theme->addItem(QString("VHH-blue"), QVariant("drkblue"));
 
 
 */     

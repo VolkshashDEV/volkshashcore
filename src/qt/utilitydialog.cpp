@@ -145,7 +145,7 @@ You retain control of your money at all times.<hr> \
 <b>The PrivateSend process works like this:</b>\
 <ol type=\"1\"> \
 <li>PrivateSend begins by breaking your transaction inputs down into standard denominations. \
-These denominations are 0.001 UKY, 0.01 UKY, 0.1 UKY, 1 UKY and 10 UKY -- sort of like the paper money you use every day.</li> \
+These denominations are 0.001 VHH, 0.01 VHH, 0.1 VHH, 1 VHH and 10 VHH -- sort of like the paper money you use every day.</li> \
 <li>Your wallet then sends requests to specially configured software nodes on the network, called \"masternodes.\" \
 These masternodes are informed then that you are interested in mixing a certain denomination. \
 No identifiable information is sent to the masternodes, so they never know \"who\" you are.</li> \
