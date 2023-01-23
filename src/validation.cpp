@@ -1153,9 +1153,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     int nHeight = nPrevHeight +1;
 
     if((nHeight >       0) & (nHeight <=   1000)) nSubsidyBase =  0;
-    if((nHeight >   1000) & (nHeight <=   600000)) nSubsidyBase =  5000000;
+    if((nHeight >   1000) & (nHeight <=   100000)) nSubsidyBase =  5000000;
     // if((nHeight >   100000) & (nHeight <=  200000)) nSubsidyBase =  4500000;
-    // if((nHeight >   200000) & (nHeight <=  300000)) nSubsidyBase =  4000000;
+    // if((nHeight >   200000) & (nHeight <=  300000)) nSubsidyBase =  4000000; //MASTERNODE START - THIS MUST BE REDUCED -1.5YEARS 
     // if((nHeight >   300000) & (nHeight <=  400000)) nSubsidyBase =  3500000;
     // if((nHeight >   400000) & (nHeight <=  500000)) nSubsidyBase =  3000000;
     // if((nHeight >   500000) & (nHeight <=  600000)) nSubsidyBase =  2500000;
