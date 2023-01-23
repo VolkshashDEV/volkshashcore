@@ -1152,21 +1152,10 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidyBase = 0;
     int nHeight = nPrevHeight +1;
 
-    if((nHeight >       0) & (nHeight <=   10080)) nSubsidyBase =  30;
-    if((nHeight >   10080) & (nHeight <=   43200)) nSubsidyBase =  35;
-    if((nHeight >   43200) & (nHeight <=  129600)) nSubsidyBase =  40;
-    if((nHeight >  129600) & (nHeight <=  525600)) nSubsidyBase =  50;
-    if((nHeight >  525600) & (nHeight <= 1051200)) nSubsidyBase =  45;
-    if((nHeight > 1051200) & (nHeight <= 1576800)) nSubsidyBase =  40;
-    if((nHeight > 1576800) & (nHeight <= 2102400)) nSubsidyBase =  36;
-    if((nHeight > 2102400) & (nHeight <= 2628000)) nSubsidyBase =  32;
-    if((nHeight > 2628000) & (nHeight <= 3153600)) nSubsidyBase =  28;
-    if((nHeight > 3153600) & (nHeight <= 3679200)) nSubsidyBase =  24;
-    if((nHeight > 3679200) & (nHeight <= 4204800)) nSubsidyBase =  21;
-    if((nHeight > 4204800) & (nHeight <= 4730400)) nSubsidyBase =  18;
-    if((nHeight > 4730400) & (nHeight <= 5256000)) nSubsidyBase =  15;
-    if((nHeight > 5256000) & (nHeight <= 6307200)) nSubsidyBase =  12;
-
+    if((nHeight >       0) & (nHeight <=   1000)) nSubsidyBase =  0;
+    if((nHeight >   1000) & (nHeight <=   600000)) nSubsidyBase =  5000000;
+    // if((nHeight >   43200) & (nHeight <=  129600)) nSubsidyBase =  40;
+    
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
@@ -1184,20 +1173,9 @@ CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 
     int nFounderFee = 0;
 
-    if((nHeight >       0) & (nHeight <=   10080)) nFounderFee = blockValue * 0.01;
-    if((nHeight >   10080) & (nHeight <=   43200)) nFounderFee = blockValue * 0.01;
-    if((nHeight >   43200) & (nHeight <=  129600)) nFounderFee = blockValue * 0.01;
-    if((nHeight >  129600) & (nHeight <=  525600)) nFounderFee = blockValue * 0.01;
-    if((nHeight >  525600) & (nHeight <= 1051200)) nFounderFee = blockValue * 0.01;
-    if((nHeight > 1051200) & (nHeight <= 1576800)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 1576800) & (nHeight <= 2102400)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 2102400) & (nHeight <= 2628000)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 2628000) & (nHeight <= 3153600)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 3153600) & (nHeight <= 3679200)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 3679200) & (nHeight <= 4204800)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 4204800) & (nHeight <= 4730400)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 4730400) & (nHeight <= 5256000)) nFounderFee = blockValue * 0.00;
-    if((nHeight > 5256000) & (nHeight <= 6307200)) nFounderFee = blockValue * 0.00;
+    if((nHeight >       0) & (nHeight <=   100)) nFounderFee = blockValue * 0.00;
+    if((nHeight >   100) & (nHeight <=   100)) nFounderFee = blockValue * 0.04;
+
 
 // LogPrintf("GetFounderPayment -- nHeight:%d, reward:%d, founder:%.3f \n",nHeight, blockValue/COIN, nFounderFee/COIN );
 
@@ -1210,19 +1188,8 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     int nMNPBlock = Params().GetConsensus().nMasternodePaymentsStartBlock;
 
     if((nHeight >       0) & (nHeight <= nMNPBlock)) ret = blockValue * 0.00;
-    if((nHeight > nMNPBlock) & (nHeight <=   43200)) ret = blockValue * 0.08;
-    if((nHeight >   43200) & (nHeight <=  129600)) ret = blockValue * 0.09;
-    if((nHeight >  129600) & (nHeight <=  525600)) ret = blockValue * 0.10;
-    if((nHeight >  525600) & (nHeight <= 1051200)) ret = blockValue * 0.15;
-    if((nHeight > 1051200) & (nHeight <= 1576800)) ret = blockValue * 0.20;
-    if((nHeight > 1576800) & (nHeight <= 2102400)) ret = blockValue * 0.30;
-    if((nHeight > 2102400) & (nHeight <= 2628000)) ret = blockValue * 0.35;
-    if((nHeight > 2628000) & (nHeight <= 3153600)) ret = blockValue * 0.40;
-    if((nHeight > 3153600) & (nHeight <= 3679200)) ret = blockValue * 0.45;
-    if((nHeight > 3679200) & (nHeight <= 4204800)) ret = blockValue * 0.50;
-    if((nHeight > 4204800) & (nHeight <= 4730400)) ret = blockValue * 0.55;
-    if((nHeight > 4730400) & (nHeight <= 5256000)) ret = blockValue * 0.62;
-    if((nHeight > 5256000) & (nHeight <= 6307200)) ret = blockValue * 0.70;
+    if((nHeight > nMNPBlock) & (nHeight <=   300000)) ret = blockValue * 0.04;
+
 
     return ret;
 }
