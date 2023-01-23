@@ -179,16 +179,16 @@ public:
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 210240; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
         consensus.nMasternodePaymentsStartBlock = 10080; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
-        consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
+        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
+        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
         consensus.nInstantSendConfirmationsRequired = 6;
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 2100000000;         // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 2100000000;        // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 2100000000;       // Disabled
-        consensus.nSuperblockStartBlock = 2100000000;             // Disabled
+        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled
+        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled
+        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled
+        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled
         consensus.nSuperblockStartHash = uint256();
-        consensus.nSuperblockCycle = 2100000000;                  // Disabled
+        consensus.nSuperblockCycle = 999999999999ULL;                  // Disabled
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
@@ -297,10 +297,9 @@ if (false) {
         assert(genesis.hashMerkleRoot == uint256S("0xe9a5e50f4b4078d2727e5ba22a29878e03b7be3d98d5e1c779f6a97a4a120ba2"));
 
 
-        vSeeds.push_back(CDNSSeedData("volkshash3.space", "dnsseed.volkshash3.space"));
+        vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
 //        vSeeds.push_back(CDNSSeedData("volkshash.org", "dnsseed.volkshash.org"));
-//        vSeeds.push_back(CDNSSeedData("volkshashdot.io", "dnsseed.volkshashdot.io"));
-//        vSeeds.push_back(CDNSSeedData("masternode.io", "dnsseed.masternode.io"));
+
 
         // Volkshash addresses start with 'X'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,68);
@@ -368,16 +367,16 @@ public:
         strNetworkID = "test";
         consensus.nSubsidyHalvingInterval = 210240;
         consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
-        consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
+        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
+        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 2100000000;         // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 2100000000;        // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 2100000000;       // Disabled
-        consensus.nSuperblockStartBlock = 2100000000;             // Disabled
+        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled
+        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled
+        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled
+        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled
         consensus.nSuperblockStartHash = uint256();
-        consensus.nSuperblockCycle = 2100000000;
+        consensus.nSuperblockCycle = 999999999999ULL;
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
@@ -483,8 +482,8 @@ if (false) {
 
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-//        vSeeds.push_back(CDNSSeedData("volkshashdot.io",  "testnet-seed.volkshashdot.io"));
-//        vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
+   //     vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
+//        vSeeds.push_back(CDNSSeedData("volkshash.org", "dnsseed.volkshash.org"));
 
         // Testnet Volkshash addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,130);
@@ -548,17 +547,17 @@ public:
     CDevNetParams() {
         strNetworkID = "dev";
         consensus.nSubsidyHalvingInterval = 210240;
-        consensus.nMasternodePaymentsStartBlock = 4010; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 4030;
-        consensus.nMasternodePaymentsIncreasePeriod = 10;
-        consensus.nInstantSendConfirmationsRequired = 2;
+        consensus.nMasternodePaymentsStartBlock = 999999999999ULL; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
+        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
+        consensus.nInstantSendConfirmationsRequired = 999999999999ULL;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 4100;
-        consensus.nBudgetPaymentsCycleBlocks = 50;
-        consensus.nBudgetPaymentsWindowBlocks = 10;
-        consensus.nSuperblockStartBlock = 4200; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
+        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;
+        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;
+        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;
+        consensus.nSuperblockStartBlock = 999999999999ULL; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
         consensus.nSuperblockStartHash = uint256(); // do not check this on devnet
-        consensus.nSuperblockCycle = 24; // Superblocks can be issued hourly on devnet
+        consensus.nSuperblockCycle = 999999999999ULL; // Superblocks can be issued hourly on devnet
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
