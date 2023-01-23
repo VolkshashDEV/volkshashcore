@@ -1154,7 +1154,22 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     if((nHeight >       0) & (nHeight <=   1000)) nSubsidyBase =  0;
     if((nHeight >   1000) & (nHeight <=   600000)) nSubsidyBase =  5000000;
-    // if((nHeight >   43200) & (nHeight <=  129600)) nSubsidyBase =  40;
+    // if((nHeight >   100000) & (nHeight <=  200000)) nSubsidyBase =  4500000;
+    // if((nHeight >   200000) & (nHeight <=  300000)) nSubsidyBase =  4000000;
+    // if((nHeight >   300000) & (nHeight <=  400000)) nSubsidyBase =  3500000;
+    // if((nHeight >   400000) & (nHeight <=  500000)) nSubsidyBase =  3000000;
+    // if((nHeight >   500000) & (nHeight <=  600000)) nSubsidyBase =  2500000;
+    // if((nHeight >   600000) & (nHeight <=  700000)) nSubsidyBase =  2000000;
+    // if((nHeight >   700000) & (nHeight <=  800000)) nSubsidyBase =  1500000;
+    // if((nHeight >   800000) & (nHeight <=  900000)) nSubsidyBase =  1000000;
+    // if((nHeight >   900000) & (nHeight <=  500000)) nSubsidyBase =  500000;
+    // if((nHeight >   1000000) & (nHeight <=  600000)) nSubsidyBase =  250000;
+
+//TESTING REWARD REDUCTIONS PT1    
+    
+    
+    
+    
     
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
