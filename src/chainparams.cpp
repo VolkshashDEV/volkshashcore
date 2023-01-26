@@ -177,65 +177,67 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210240; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
-        consensus.nMasternodePaymentsStartBlock = 10080; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
-        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
-        consensus.nInstantSendConfirmationsRequired = 6;
-        consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled
-        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled
-        consensus.nSuperblockStartHash = uint256();
-        consensus.nSuperblockCycle = 999999999999ULL;                  // Disabled
-        consensus.nGovernanceMinQuorum = 10;
-        consensus.nGovernanceFilterElements = 20000;
-        consensus.nMasternodeMinimumConfirmations = 15;
-        consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256();
-        consensus.BIP65Height = 0;
-        consensus.BIP66Height = 0;
-        consensus.DIP0001Height = 0;
-        consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 1 * 60 * 60;  // Volkshash: 1 hour
-        consensus.nPowTargetSpacing = 1 * 60;        // Volkshash: 1 minutes
-        consensus.fPowAllowMinDifficultyBlocks = false;
+        consensus.nSubsidyHalvingInterval = 999999999999ULL;            // Disabled Custom Reward Schedule 
+        consensus.nMasternodePaymentsStartBlock = 300000;               // Enabled Not True as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;   // Disabled Masternode Payments Increase Block
+        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;  // Disabled Masternode Payments Increase Period
+        consensus.nInstantSendConfirmationsRequired = 6;                // Enabled Instant Send 
+        consensus.nInstantSendKeepLock = 24;                            // Enabled Instant Send Keep
+        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;          // Disabled Budget Payments Start Block
+        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;         // Disabled Budget Payments Cycle Blocks
+        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;        // Disabled Budget Payments Window Blocks
+        consensus.nSuperblockStartBlock = 999999999999ULL;              // Disabled Super block Start Block
+        consensus.nSuperblockStartHash = uint256();                     // Disabled Super block Start Block Hash
+        consensus.nSuperblockCycle = 999999999999ULL;                   // Disabled SuperblockCycle
+        consensus.nGovernanceMinQuorum = 10;                            // Quorum TODO future 
+        consensus.nGovernanceFilterElements = 20000;                    // Governance Filter Elements
+        consensus.nMasternodeMinimumConfirmations = 15;                 // Enabled Masternode Minimum Confirmations
+        consensus.BIP34Height = 0;                                      // BIP 34                   Start Block 0
+        consensus.BIP34Hash = uint256();                                // TODO add BIP 34
+        consensus.BIP65Height = 0;                                      // BIP 65                   Start Block 0
+        consensus.BIP66Height = 0;                                      // BIP 66                   Start Block 0
+        consensus.DIP0001Height = 0;                                    // DIP0001                  Start Block 0
+        consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Pow Limit  
+        consensus.nPowTargetTimespan = 3 * 60 * 60;                     // Volkshash: Every 100 Blocks 
+        consensus.nPowTargetSpacing = 3 * 60;                           // Volkshash: 3 Minute Block Time 
+        consensus.fPowAllowMinDifficultyBlocks = false;                 // Disabled Pow Allow Min Difficulty Blocks
 
-        consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 0;
-        consensus.nPowDGWHeight = 0;
-        consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.fPowNoRetargeting = false;                            // Disabled Pow No Retarget
+        consensus.nPowKGWHeight = 0;                                    // Kimoto's Gravity Well Legacy Starts and Ends on Block 0
+        consensus.nPowDGWHeight = 0;                                    // Dark Gravity Wave Start Starts on Block 0
+        
+        consensus.nRuleChangeActivationThreshold = 1916;                // Ancient Deploy Rules: Keeping As Ref:   95% of 2016
+        consensus.nMinerConfirmationWindow = 2016;                      // Ancient Deploy Rules: nPowTargetTimespan / nPowTargetSpacing
+                
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;        // Ancient Deploy Rules: January 1, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;          // Ancient Deploy Rules: December 31, 2008
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800; // Feb 5th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800; // Feb 5th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800;              // Ancient Deploy Rules: Feb 5th, 2017 
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800;                // Ancient Deploy Rules: Feb 5th, 2018
 
         // Deployment of DIP0001
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1508025600; // Oct 15th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1539561600; // Oct 15th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1508025600;          // Ancient Deploy Rules: Oct 15th, 2017
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1539561600;            // Ancient Deploy Rules: Oct 15th, 2018
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226;                // Ancient Deploy Rules: 80% of 4032
 
         // Deployment of BIP147
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1524477600; // Apr 23th, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1556013600; // Apr 23th, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1524477600;           // Ancient Deploy Rules: Apr 23th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1556013600;             // Ancient Deploy Rules: Apr 23th, 2019
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226;                 // Ancient Deploy Rules: 80% of 4032
 
         // Deployment of DIP0003
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].bit = 3;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1546300800; // Jan 1st, 2019
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1577836800; // Jan 1st, 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1546300800;          // Ancient Deploy Rules: Jan 1st, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1577836800;            // Ancient Deploy Rules: Jan 1st, 2020
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 3226;                // Ancient Deploy Rules: 80% of 4032
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
@@ -248,14 +250,19 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xde;
-        pchMessageStart[1] = 0xad;
-        pchMessageStart[2] = 0xbe;
-        pchMessageStart[3] = 0xef;
+        pchMessageStart[0] = 0xde;                                      //peerMagic Mainet      
+        pchMessageStart[1] = 0xad;                                      //peerMagic Mainet
+        pchMessageStart[2] = 0xbe;                                      //peerMagic Mainet
+        pchMessageStart[3] = 0xef;                                      //peerMagic Mainet
+        
+                                                                        // Used By NOMP
+                                                                        // peerMagic Mainet Combined :  
+        
         vAlertPubKey = ParseHex("048240a8748a80a286b270ba126705ced4f2ce5a7847b3610ea3c06513150dade2a8512ed5ea86320824683fc0818f0ac019214973e677acd1244f6d0571fc5103");
-        nDefaultPort = 32123;
+        nDefaultPort = 32123;           
         nPruneAfterHeight = 100000;
 
+        // Creation Of The Genesis Rules
         genesis = CreateGenesisBlock(1549069200, 162108, 0x1f00ffff, 1, 50 * COIN);
 
 // ========================================================================================
@@ -291,29 +298,31 @@ if (false) {
 }
 // ========================================================================================
 
-
+        // Asserting Block Hash Of The Genesis 
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x0000a29e7e30107e81e0a762d5ec45c944540fc4c3ebade79f9b08f55ff4c54c"));
         assert(genesis.hashMerkleRoot == uint256S("0xe9a5e50f4b4078d2727e5ba22a29878e03b7be3d98d5e1c779f6a97a4a120ba2"));
 
-
+        // Seeds and Nodes for Volkshash 
         vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
-//        vSeeds.push_back(CDNSSeedData("volkshash.org", "dnsseed.volkshash.org"));
+        //vSeeds.push_back(CDNSSeedData("volkshash.org", "dnsseed.volkshash.org"));
 
 
-        // Volkshash addresses start with 'X'
+        // VolkshashMainent addresses start with 'V'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,68);
         // Volkshash script addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Volkshash private keys start with '7' or 'X'
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,196);
+        
+        
         // Volkshash BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // Volkshash BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        // Volkshash BIP44 coin type is '5'
-        nExtCoinType = 5;
+        // Volkshash BIP44 coin type is '20'
+        nExtCoinType = 20;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -350,9 +359,9 @@ if (false) {
             0           // * estimated number of transactions per second after that timestamp
         };
 
-        // founder address & fee
+                                        // Developement Fee Reward at 3 %
         strFounderAddress = "Volkshash35CKajgktFFs2951zZVoz72gQKjVu";
-        dFounderFee = 0.01;     // 1%           Not Used
+        dFounderFee = 0.03;             //Active from Block 100
 
     }
 };
@@ -365,16 +374,16 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 210240;
+        consensus.nSubsidyHalvingInterval = 999999999999ULL;
         consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
         consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled
-        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled
+        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled Budget Payments Start Block
+        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled Budget Payments Cycle Blocks
+        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled Budget Payments Window Blocks
+        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled Super block Start Block
         consensus.nSuperblockStartHash = uint256();
         consensus.nSuperblockCycle = 999999999999ULL;
         consensus.nGovernanceMinQuorum = 1;
@@ -482,10 +491,10 @@ if (false) {
 
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-   //     vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
-//        vSeeds.push_back(CDNSSeedData("volkshash.org", "dnsseed.volkshash.org"));
+        // vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
 
-        // Testnet Volkshash addresses start with 'y'
+
+        // VolkshashTestNet addresses start with 'v'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,130);
         // Testnet Volkshash script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
@@ -546,7 +555,7 @@ class CDevNetParams : public CChainParams {
 public:
     CDevNetParams() {
         strNetworkID = "dev";
-        consensus.nSubsidyHalvingInterval = 210240;
+        consensus.nSubsidyHalvingInterval = 999999999999ULL; // Custom Reward Schedule 
         consensus.nMasternodePaymentsStartBlock = 999999999999ULL; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
         consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
@@ -630,7 +639,7 @@ public:
         vSeeds.clear();
         //vSeeds.push_back(CDNSSeedData("volkshashevo.org",  "devnet-seed.volkshashevo.org"));
 
-        // Testnet Volkshash addresses start with 'y'
+        // VolkshashTestNet addresses start with 'r'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,130);
         // Testnet Volkshash script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
