@@ -1153,43 +1153,65 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     int nHeight = nPrevHeight +1;
 
     if((nHeight >       0) & (nHeight <=   1000)) nSubsidyBase =  0;
-    if((nHeight >   1000) & (nHeight <=   100000)) nSubsidyBase =  5000000;
-    // if((nHeight >   100000) & (nHeight <=  200000)) nSubsidyBase =  4500000;
-    // if((nHeight >   200000) & (nHeight <=  300000)) nSubsidyBase =  4000000; //MASTERNODE START - THIS MUST BE REDUCED -1.5YEARS 
-    // if((nHeight >   300000) & (nHeight <=  400000)) nSubsidyBase =  3500000;
-    // if((nHeight >   400000) & (nHeight <=  500000)) nSubsidyBase =  3000000;
-    // if((nHeight >   500000) & (nHeight <=  600000)) nSubsidyBase =  2500000;
-    // if((nHeight >   600000) & (nHeight <=  700000)) nSubsidyBase =  2000000;
-    // if((nHeight >   700000) & (nHeight <=  800000)) nSubsidyBase =  1500000;
-    // if((nHeight >   800000) & (nHeight <=  900000)) nSubsidyBase =  1000000;
-    // if((nHeight >   900000) & (nHeight <=  500000)) nSubsidyBase =  500000;
-    // if((nHeight >   1000000) & (nHeight <=  600000)) nSubsidyBase =  250000;
+    // Slow Start For Miners to connect
+     
+    if((nHeight >   1000) & (nHeight <=   300000)) nSubsidyBase =  5000000;
+    // Time 625 Days 1.7 Years 
+    // Rewardbase Starts Here 
+    
+    
+    // Masternode Cost = 117 Blocks
+      
+    if((nHeight >   300000) & (nHeight <=  600000)) nSubsidyBase =  2500000;
+    // Time 625 Days 1.7 Years 
+    // MasterNode Starts at 300000  
+    // 2x Reduction   
+    // Masternode Cost = 234 Blocks
+        
+    if((nHeight >   600000) & (nHeight <=  900000)) nSubsidyBase =  250000;
+    // Time 625 Days 1.7 Years 
+    // 10x Reduction 
+    // Masternode Cost = 2340 Blocks
+    
+    if((nHeight >   900000) & (nHeight <=  1200000)) nSubsidyBase =  125000;
+    // Time 625 Days 1.7 Years
+    // 2x Reduction
+    // Masternode Cost = 4680 Blocks 
+    
+    if((nHeight >   1200000) & (nHeight <=  12000000)) nSubsidyBase =  12500;
+    // Final Block reward reduction reached - 
+    // 10 x Reduction 
+    // Masternode Costs = 46800 Blocks 
+    
+    
+    if((nHeight >   12000000) & (nHeight <=  12000001)) nSubsidyBase =  50;
+    // Soft Market Cap of VHH 2487500000000 Reached 
+    // Market Cap Reached - Value of nSubsidyBase will be in place to move chain and fees. 
+    // Market Cap will increase 0.00035% Inflation Per Year 
+    // (175200 Blocks Per Year  && VHH 8760000 per year)
+    // 25 x Reduction Final 
+    // Masternode Costs = 11700000 Blocks  
+    
 
-//TESTING REWARD REDUCTIONS PT1    
-    
-    
-    
-    
-    
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
 
 
-    // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
+    // Keeping it Static : Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
     // CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
 
-//LogPrintf("GetBlockSubsidy -- nHeight:%d, reward:%d \n",nHeight, nSubsidy/COIN);
+    //LogPrintf("GetBlockSubsidy -- nHeight:%d, reward:%d \n",nHeight, nSubsidy/COIN);
     return nSubsidy;
 }
 
-    // Added founder's reward, by volkshashHG
+    // Volkshash Developement Fund Reward  : Blockvalue * 0.03 = 3% Start from block 100
 CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 
     int nFounderFee = 0;
 
     if((nHeight >       0) & (nHeight <=   100)) nFounderFee = blockValue * 0.00;
-    if((nHeight >   100) & (nHeight <=   100)) nFounderFee = blockValue * 0.04;
+    if((nHeight >   100) & (nHeight <=   100)) nFounderFee = blockValue * 0.03;
 
 
 // LogPrintf("GetFounderPayment -- nHeight:%d, reward:%d, founder:%.3f \n",nHeight, blockValue/COIN, nFounderFee/COIN );
@@ -1197,13 +1219,15 @@ CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
     return nFounderFee;
 }
 
+
+    // Masternode Reward  : Blockvalue * 0.05 = 5% Start from block 300000
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret = 0;
     int nMNPBlock = Params().GetConsensus().nMasternodePaymentsStartBlock;
 
     if((nHeight >       0) & (nHeight <= nMNPBlock)) ret = blockValue * 0.00;
-    if((nHeight > nMNPBlock) & (nHeight <=   300000)) ret = blockValue * 0.04;
+    if((nHeight > nMNPBlock) & (nHeight <=   300000)) ret = blockValue * 0.05;
 
 
     return ret;
