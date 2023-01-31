@@ -64,21 +64,11 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
     return genesis;
 }
 
-/**
- * Build the genesis block. Note that the output of its generation
- * transaction cannot be spent since it did not originally exist in the
- * database.
- *
- * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1549069200, nBits=1e0ffff0, nNonce=28917698, vtx=1)
- *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
- *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73)
- *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
- *   vMerkleTree: e0028e
- */
+
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "17/Feb/2019 Okinawan fisherman reel in two live oarfish, eat portion of one";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const char* pszTimestamp = "13Dec2022 FTX SBF ARRESTED R R";
+    const CScript genesisOutputScript = CScript() << ParseHex("0485a729f67928d5fa19e8079687e50f0fd7ecf9a75d24db010ba72a493b33aefee507465c380a05c62578ccec60686dff8b5fb1f369dedf6d702c504353f7ca06") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -160,35 +150,41 @@ static Consensus::LLMQParams llmq400_85 = {
         .dkgMiningWindowEnd = 48, // give it a larger mining window to make sure it is mined
 };
 
+//Transaction Records of Genesisblocks 
+    //Mainet Genesis record
+	//nonce: 97337
+	//time: 1670440473
+	//hash: 00007840c8978b41129e6d507e1aca9ec2b2469bf78b39f21e21f91134901209
+	//merklehash: 38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393
+    //TestNet Genesis record
+    //nonce: 7704
+    //time: 1670440400
+    //hash: 0000df18e0ba437d934f891ed089dbcaa4b7268347ccd70ac44131842cbd3466
+    //merklehash: 38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393
+    //RegNet Genesis record
+    //nonce: 0
+    //time: 1670440200
+    //hash: f541c4ece941759c3584af71172ee09d93c42de9322ba60d04b767e468f2d645
+    //merklehash: 38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393
 
-/**
- * Main network
- */
-/**
- * What makes a good checkpoint block?
- * + Is surrounded by blocks with reasonable timestamps
- *   (no blocks before with a timestamp after, none after with
- *    timestamp before)
- * + Contains no strange transactions
- */
 
 
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 999999999999ULL;            // Disabled Custom Reward Schedule 
+        consensus.nSubsidyHalvingInterval = 2100000000;                 // Disabled Custom Reward Schedule 
         consensus.nMasternodePaymentsStartBlock = 300000;               // Enabled Not True as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;   // Disabled Masternode Payments Increase Block
-        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;  // Disabled Masternode Payments Increase Period
+        consensus.nMasternodePaymentsIncreaseBlock = 2100000000;        // Disabled Masternode Payments Increase Block
+        consensus.nMasternodePaymentsIncreasePeriod = 2100000000;       // Disabled Masternode Payments Increase Period
         consensus.nInstantSendConfirmationsRequired = 6;                // Enabled Instant Send 
         consensus.nInstantSendKeepLock = 24;                            // Enabled Instant Send Keep
-        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;          // Disabled Budget Payments Start Block
-        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;         // Disabled Budget Payments Cycle Blocks
-        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;        // Disabled Budget Payments Window Blocks
-        consensus.nSuperblockStartBlock = 999999999999ULL;              // Disabled Super block Start Block
+        consensus.nBudgetPaymentsStartBlock = 2100000000;               // Disabled Budget Payments Start Block
+        consensus.nBudgetPaymentsCycleBlocks = 2100000000;              // Disabled Budget Payments Cycle Blocks
+        consensus.nBudgetPaymentsWindowBlocks = 2100000000;             // Disabled Budget Payments Window Blocks
+        consensus.nSuperblockStartBlock = 2100000000;                   // Disabled Super block Start Block
         consensus.nSuperblockStartHash = uint256();                     // Disabled Super block Start Block Hash
-        consensus.nSuperblockCycle = 999999999999ULL;                   // Disabled SuperblockCycle
+        consensus.nSuperblockCycle = 2100000000;                        // Disabled SuperblockCycle
         consensus.nGovernanceMinQuorum = 10;                            // Quorum TODO future 
         consensus.nGovernanceFilterElements = 20000;                    // Governance Filter Elements
         consensus.nMasternodeMinimumConfirmations = 15;                 // Enabled Masternode Minimum Confirmations
@@ -242,8 +238,8 @@ public:
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
 
-        // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000a29e7e30107e81e0a762d5ec45c944540fc4c3ebade79f9b08f55ff4c54c");
+        // By default assume that the signatures in ancestors of this block are valid. Same as genesis as there was no previous blocks 
+        consensus.defaultAssumeValid = uint256S("0x00007840c8978b41129e6d507e1aca9ec2b2469bf78b39f21e21f91134901209");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -252,56 +248,25 @@ public:
          */
         pchMessageStart[0] = 0xde;                                      //peerMagic Mainet      
         pchMessageStart[1] = 0xad;                                      //peerMagic Mainet
-        pchMessageStart[2] = 0xbe;                                      //peerMagic Mainet
-        pchMessageStart[3] = 0xef;                                      //peerMagic Mainet
+        pchMessageStart[2] = 0xf1;                                      //peerMagic Mainet
+        pchMessageStart[3] = 0xb1;                                      //peerMagic Mainet
         
                                                                         // Used By NOMP
-                                                                        // peerMagic Mainet Combined :  
+                                                                        // peerMagic Mainet Combined :deadf1b1  
         
-        vAlertPubKey = ParseHex("048240a8748a80a286b270ba126705ced4f2ce5a7847b3610ea3c06513150dade2a8512ed5ea86320824683fc0818f0ac019214973e677acd1244f6d0571fc5103");
+        vAlertPubKey = ParseHex("04495dd254658385071f8fa34a8ed86166cf60cafeb52f9535029bb7a3eb6dd159811d7911ca2b25a39b4d4b30a2e502fa6491ecfed381dd4f03cd50b4617fbd92");
         nDefaultPort = 32123;           
         nPruneAfterHeight = 100000;
 
         // Creation Of The Genesis Rules
-        genesis = CreateGenesisBlock(1549069200, 162108, 0x1f00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1670440473, 97337, 0x1f00ffff, 1, 50 * COIN);
 
-// ========================================================================================
-// Create Genesis Block
-// ========================================================================================
-if (false) {
-    bool fNegative;
-    bool fOverflow;
-
-    std::cout << "Begin calculating " << strNetworkID << " Genesis Block:\n";
-    arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits, &fNegative, &fOverflow);
-    std::cout << "fNegative: "<< fNegative << "\n";
-    std::cout << "fOverflow: "<< fOverflow << "\n";
-    uint256 hash;
-    genesis.nNonce = 0;
-    std::cout << " target: " << hashTarget.ToString().c_str() << "\n";
-    while (UintToArith256(genesis.GetHash()) > hashTarget) {
-        ++genesis.nNonce;
-        if (genesis.nNonce == 0) {
-            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-            ++genesis.nTime;
-        }
-        if (genesis.nNonce % 100 == 0) {
-            std::cout << "[" << strNetworkID << "] nonce: " << genesis.nNonce << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
-        }
-    }
-    std::cout << strNetworkID << " ---\n";
-    std::cout << "  nonce: " << genesis.nNonce <<  "\n";
-    std::cout << "   time: " << genesis.nTime << "\n";
-    std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
-    std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
-    std::cout << "Finished calculating " << strNetworkID << " Genesis Block:\n";
-}
-// ========================================================================================
+	
 
         // Asserting Block Hash Of The Genesis 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0000a29e7e30107e81e0a762d5ec45c944540fc4c3ebade79f9b08f55ff4c54c"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe9a5e50f4b4078d2727e5ba22a29878e03b7be3d98d5e1c779f6a97a4a120ba2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00007840c8978b41129e6d507e1aca9ec2b2469bf78b39f21e21f91134901209"));
+        assert(genesis.hashMerkleRoot == uint256S("0x38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393"));
 
         // Seeds and Nodes for Volkshash 
         vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "dnsseed.pool.volkshash.org"));
@@ -309,17 +274,17 @@ if (false) {
 
 
         // VolkshashMainent addresses start with 'V'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,68);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,70);
         // Volkshash script addresses start with '7'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
         // Volkshash private keys start with '7' or 'X'
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,196);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,112);
         
         
         // Volkshash BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
-        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x1A)(0xA8)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // Volkshash BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
-        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x14)(0x88)(0x1D)(0xE1).convert_to_container<std::vector<unsigned char> >();
 
         // Volkshash BIP44 coin type is '20'
         nExtCoinType = 20;
@@ -342,25 +307,25 @@ if (false) {
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
 
-        vSporkAddresses = {"USporkSTAdKVr6CLSEzcNaXkz8QtawS9Du"};
+        vSporkAddresses = {"VHashBurnGXXXXXXXXXXXXXXXXXXUVXsg2"};
         nMinSporkKeys = 1;
         fBIP9CheckMasternodesUpgraded = true;
         consensus.fLLMQAllowDummyCommitments = false;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (     0, uint256S("0x0000a29e7e30107e81e0a762d5ec45c944540fc4c3ebade79f9b08f55ff4c54c"))
+            (     0, uint256S("0x0x00007840c8978b41129e6d507e1aca9ec2b2469bf78b39f21e21f91134901209"))
         };
 
         chainTxData = ChainTxData{
-            1549069200, // * UNIX timestamp of last known number of transactions
+            1670440473, // * UNIX timestamp of last known number of transactions
             0,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0           // * estimated number of transactions per second after that timestamp
         };
 
                                         // Developement Fee Reward at 3 %
-        strFounderAddress = "Volkshash35CKajgktFFs2951zZVoz72gQKjVu";
+        strFounderAddress = "VHashBurnGXXXXXXXXXXXXXXXXXXUVXsg2";
         dFounderFee = 0.03;             //Active from Block 100
 
     }
@@ -374,18 +339,18 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 999999999999ULL;
+        consensus.nSubsidyHalvingInterval = 2100000000;
         consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
-        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
+        consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
+        consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
         consensus.nInstantSendConfirmationsRequired = 2;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;         // Disabled Budget Payments Start Block
-        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;        // Disabled Budget Payments Cycle Blocks
-        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;       // Disabled Budget Payments Window Blocks
-        consensus.nSuperblockStartBlock = 999999999999ULL;             // Disabled Super block Start Block
+        consensus.nBudgetPaymentsStartBlock = 2100000000;         // Disabled Budget Payments Start Block
+        consensus.nBudgetPaymentsCycleBlocks = 2100000000;        // Disabled Budget Payments Cycle Blocks
+        consensus.nBudgetPaymentsWindowBlocks = 2100000000;       // Disabled Budget Payments Window Blocks
+        consensus.nSuperblockStartBlock = 2100000000;             // Disabled Super block Start Block
         consensus.nSuperblockStartHash = uint256();
-        consensus.nSuperblockCycle = 999999999999ULL;
+        consensus.nSuperblockCycle = 2100000000;
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
@@ -394,7 +359,7 @@ public:
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
         consensus.DIP0001Height = 0;
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
+        consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 1 * 60 * 60; // Volkshash: 1 hour
         consensus.nPowTargetSpacing = 1 * 60;       // Volkshash: 1 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -437,54 +402,31 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00002d862b34b44929088d830d77949e54ff3b1675caf9230f89c29c540ba6bf");
+        consensus.defaultAssumeValid = uint256S("0x0000df18e0ba437d934f891ed089dbcaa4b7268347ccd70ac44131842cbd3466");
 
-        pchMessageStart[0] = 0xce;
-        pchMessageStart[1] = 0xe2;
-        pchMessageStart[2] = 0xca;
-        pchMessageStart[3] = 0xff;
-        vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
+        pchMessageStart[0] = 0xce; // peerMagic 
+        pchMessageStart[1] = 0xa2; // peerMagic 
+        pchMessageStart[2] = 0xca; // peerMagic 
+        pchMessageStart[3] = 0xab; // peerMagic 
+                                                                        // Used By NOMP / POOLS
+                                                                        // peerMagic Testnet Combined :cea2caab  
+
+
+        vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
         nDefaultPort = 42123;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1549069201, 10487, 0x1f00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1670440400, 7704, 0x1f00ffff, 1, 50 * COIN);
 
-// ========================================================================================
-// Create Genesis Block
-// ========================================================================================
-if (false) {
-    bool fNegative;
-    bool fOverflow;
+//  nonce: 7704
+//   time: 1670440400
+//   hash: 0000df18e0ba437d934f891ed089dbcaa4b7268347ccd70ac44131842cbd3466
+//   merklehash: 38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393
 
-    std::cout << "Begin calculating " << strNetworkID << " Genesis Block:\n";
-    arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits, &fNegative, &fOverflow);
-    std::cout << "fNegative: "<< fNegative << "\n";
-    std::cout << "fOverflow: "<< fOverflow << "\n";
-    uint256 hash;
-    genesis.nNonce = 0;
-    std::cout << " target: " << hashTarget.ToString().c_str() << "\n";
-    while (UintToArith256(genesis.GetHash()) > hashTarget) {
-        ++genesis.nNonce;
-        if (genesis.nNonce == 0) {
-            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-            ++genesis.nTime;
-        }
-        if (genesis.nNonce % 100 == 0) {
-            std::cout << "[" << strNetworkID << "] nonce: " << genesis.nNonce << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
-        }
-    }
-    std::cout << strNetworkID << " ---\n";
-    std::cout << "  nonce: " << genesis.nNonce <<  "\n";
-    std::cout << "   time: " << genesis.nTime << "\n";
-    std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
-    std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
-    std::cout << "Finished calculating " << strNetworkID << " Genesis Block:\n";
-}
-// ========================================================================================
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00002d862b34b44929088d830d77949e54ff3b1675caf9230f89c29c540ba6bf"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe9a5e50f4b4078d2727e5ba22a29878e03b7be3d98d5e1c779f6a97a4a120ba2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000df18e0ba437d934f891ed089dbcaa4b7268347ccd70ac44131842cbd3466"));
+        assert(genesis.hashMerkleRoot == uint256S("0x38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393"));
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -495,15 +437,15 @@ if (false) {
 
 
         // VolkshashTestNet addresses start with 'v'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,130);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,132);
         // Testnet Volkshash script addresses start with '8' or '9'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,124);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,114);
         // Testnet Volkshash BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
-        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x31)(0x83)(0xEF).convert_to_container<std::vector<unsigned char> >();
         // Testnet Volkshash BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
-        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x03)(0x32)(0x82)(0x91).convert_to_container<std::vector<unsigned char> >();
 
         // Testnet Volkshash BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
@@ -524,25 +466,25 @@ if (false) {
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"uSpTstvGf1FcyfbnkFMRhXs1ZiLGzacQQw"};
+        vSporkAddresses = {"vHashBurnGXXXXXXXXXXXXXXXXXXT8HGTG"};
         nMinSporkKeys = 1;
         fBIP9CheckMasternodesUpgraded = true;
         consensus.fLLMQAllowDummyCommitments = true;
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (     0, uint256S("0x00002d862b34b44929088d830d77949e54ff3b1675caf9230f89c29c540ba6bf"))
+            (     0, uint256S("0x0000df18e0ba437d934f891ed089dbcaa4b7268347ccd70ac44131842cbd3466"))
         };
 
         chainTxData = ChainTxData{
-            1549069201, // * UNIX timestamp of last known number of transactions
+            1670440400, // * UNIX timestamp of last known number of transactions
             0,                 // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0          // * estimated number of transactions per second after that timestamp
         };
 
         // founder address & fee
-        strFounderAddress = "ufounwkvGKhNJDaEWr3cEURUgxNxy8B3b5";
+        strFounderAddress = "vHashBurnGXXXXXXXXXXXXXXXXXXT8HGTG";
 
     }
 };
@@ -555,18 +497,18 @@ class CDevNetParams : public CChainParams {
 public:
     CDevNetParams() {
         strNetworkID = "dev";
-        consensus.nSubsidyHalvingInterval = 999999999999ULL; // Custom Reward Schedule 
-        consensus.nMasternodePaymentsStartBlock = 999999999999ULL; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 999999999999ULL;
-        consensus.nMasternodePaymentsIncreasePeriod = 999999999999ULL;
-        consensus.nInstantSendConfirmationsRequired = 999999999999ULL;
+        consensus.nSubsidyHalvingInterval = 2100000000; // Custom Reward Schedule 
+        consensus.nMasternodePaymentsStartBlock = 2100000000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
+        consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
+        consensus.nInstantSendConfirmationsRequired = 2100000000;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 999999999999ULL;
-        consensus.nBudgetPaymentsCycleBlocks = 999999999999ULL;
-        consensus.nBudgetPaymentsWindowBlocks = 999999999999ULL;
-        consensus.nSuperblockStartBlock = 999999999999ULL; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
+        consensus.nBudgetPaymentsStartBlock = 2100000000;
+        consensus.nBudgetPaymentsCycleBlocks = 2100000000;
+        consensus.nBudgetPaymentsWindowBlocks = 2100000000;
+        consensus.nSuperblockStartBlock = 2100000000; // NOTE: Should satisfy nSuperblockStartBlock > nBudgetPeymentsStartBlock
         consensus.nSuperblockStartHash = uint256(); // do not check this on devnet
-        consensus.nSuperblockCycle = 999999999999ULL; // Superblocks can be issued hourly on devnet
+        consensus.nSuperblockCycle = 2100000000; // Superblocks can be issued hourly on devnet
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
@@ -619,18 +561,21 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000000000000000000000000000000000000000000000000000000000000000");
 
-        pchMessageStart[0] = 0xe2;
-        pchMessageStart[1] = 0xca;
-        pchMessageStart[2] = 0xff;
-        pchMessageStart[3] = 0xce;
-        vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
+        pchMessageStart[0] = 0xe2; // peerMagic
+        pchMessageStart[1] = 0xca; // peerMagic
+        pchMessageStart[2] = 0xff; // peerMagic
+        pchMessageStart[3] = 0xce; // peerMagic
+
+									                                    // Used By NOMP / POOLS
+                                                                        // peerMagic DevNet Combined :e2caffce  
+        vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
         nDefaultPort = 42123;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1549069202, 1, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1670440350, 1, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"));
-        assert(genesis.hashMerkleRoot == uint256S("0xff028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662ff"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0"));
+        assert(genesis.hashMerkleRoot == uint256S("0x0"));
 
         devnetGenesis = FindDevNetGenesisBlock(consensus, genesis, 50 * COIN);
         consensus.hashDevnetGenesisBlock = devnetGenesis.GetHash();
@@ -676,7 +621,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (     0, uint256S("0x00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6"))
+            (     0, uint256S("0x0"))
         };
 
         chainTxData = ChainTxData{
@@ -752,7 +697,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00");
+        consensus.defaultAssumeValid = uint256S("0xf541c4ece941759c3584af71172ee09d93c42de9322ba60d04b767e468f2d645");
 
         pchMessageStart[0] = 0xfc;
         pchMessageStart[1] = 0xc1;
@@ -761,44 +706,45 @@ public:
         nDefaultPort = 52123;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1549069202, 0, 0x2100ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1670440200, 0, 0x2100ffff, 1, 50 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
+        
 // ========================================================================================
-// Create Genesis Block
+// Create Genesis Block KEEPING THIS FOR REF
 // ========================================================================================
-if (false) {
-    bool fNegative;
-    bool fOverflow;
+//if (false) {
+//    bool fNegative;
+//    bool fOverflow;
+//
+//    std::cout << "Begin calculating " << strNetworkID << " Genesis Block:\n";
+//    arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits, &fNegative, &fOverflow);
+//    std::cout << "fNegative: "<< fNegative << "\n";
+//    std::cout << "fOverflow: "<< fOverflow << "\n";
+//    uint256 hash;
+//    genesis.nNonce = 0;
+//    std::cout << " target: " << hashTarget.ToString().c_str() << "\n";
+//    while (UintToArith256(genesis.GetHash()) > hashTarget) {
+//        ++genesis.nNonce;
+//        if (genesis.nNonce == 0) {
+//            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+//            ++genesis.nTime;
+//        }
+//        if (genesis.nNonce % 100 == 0) {
+//            std::cout << "[" << strNetworkID << "] nonce: " << genesis.nNonce << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
+//        }
+//    }
+//    std::cout << strNetworkID << " ---\n";
+//    std::cout << "  nonce: " << genesis.nNonce <<  "\n";
+//    std::cout << "   time: " << genesis.nTime << "\n";
+//    std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
+//    std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
+//    std::cout << "REG NET Finished calculating " << strNetworkID << " Genesis Block:\n";
+//}
+// ========================================================================================
 
-    std::cout << "Begin calculating " << strNetworkID << " Genesis Block:\n";
-    arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits, &fNegative, &fOverflow);
-    std::cout << "fNegative: "<< fNegative << "\n";
-    std::cout << "fOverflow: "<< fOverflow << "\n";
-    uint256 hash;
-    genesis.nNonce = 0;
-    std::cout << " target: " << hashTarget.ToString().c_str() << "\n";
-    while (UintToArith256(genesis.GetHash()) > hashTarget) {
-        ++genesis.nNonce;
-        if (genesis.nNonce == 0) {
-            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-            ++genesis.nTime;
-        }
-        if (genesis.nNonce % 100 == 0) {
-            std::cout << "[" << strNetworkID << "] nonce: " << genesis.nNonce << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
-        }
-    }
-    std::cout << strNetworkID << " ---\n";
-    std::cout << "  nonce: " << genesis.nNonce <<  "\n";
-    std::cout << "   time: " << genesis.nTime << "\n";
-    std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
-    std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
-    std::cout << "Finished calculating " << strNetworkID << " Genesis Block:\n";
-}
-// ========================================================================================
-
-        assert(consensus.hashGenesisBlock == uint256S("0xef6e75f38ed1aa0f73245ba3ce16609bcfc48b8720307db7b787a8e0a7de293f"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe9a5e50f4b4078d2727e5ba22a29878e03b7be3d98d5e1c779f6a97a4a120ba2"));
+        assert(consensus.hashGenesisBlock == uint256S("0xf541c4ece941759c3584af71172ee09d93c42de9322ba60d04b767e468f2d645"));
+        assert(genesis.hashMerkleRoot == uint256S("0x38ab948256619a590e24d41b71aa49dc5947283547c951e803a430b0aec5d393"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -826,7 +772,7 @@ if (false) {
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            (     0, uint256S("0xef6e75f38ed1aa0f73245ba3ce16609bcfc48b8720307db7b787a8e0a7de293f"))
+            (     0, uint256S("0xf541c4ece941759c3584af71172ee09d93c42de9322ba60d04b767e468f2d645"))
         };
 
         chainTxData = ChainTxData{
