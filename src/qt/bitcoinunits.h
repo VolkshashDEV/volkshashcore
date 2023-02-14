@@ -60,7 +60,7 @@ public:
         VHH,
         mVHH,
         uVHH,
-        monkeys
+        volkshash
     };
 
     enum SeparatorStyle

@@ -177,13 +177,13 @@ public:
 
     CAmount GetDustThreshold(const CFeeRate &minRelayTxFee) const
     {
-        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units monkeys-per-kilobyte.
+        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units volkshash-per-kilobyte.
         // If you'd pay more than 1/3 in fees to spend something, then we consider it dust.
         // A typical spendable txout is 34 bytes big, and will need a CTxIn of at least 148 bytes to spend
-        // i.e. total is 148 + 34 = 182 bytes. Default -minrelaytxfee is 1000 monkeys per kB
-        // and that means that fee per spendable txout is 182 * 1000 / 1000 = 182 monkeys.
-        // So dust is a spendable txout less than 546 * minRelayTxFee / 1000 (in monkeys)
-        // i.e. 182 * 3 = 546 monkeys with default -minrelaytxfee = minRelayTxFee = 1000 monkeys per kB.
+        // i.e. total is 148 + 34 = 182 bytes. Default -minrelaytxfee is 1000 volkshash per kB
+        // and that means that fee per spendable txout is 182 * 1000 / 1000 = 182 volkshash.
+        // So dust is a spendable txout less than 546 * minRelayTxFee / 1000 (in volkshash)
+        // i.e. 182 * 3 = 546 volkshash with default -minrelaytxfee = minRelayTxFee = 1000 volkshash per kB.
         if (scriptPubKey.IsUnspendable())
             return 0;
 
