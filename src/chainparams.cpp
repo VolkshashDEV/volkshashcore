@@ -173,7 +173,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 2100000000;                 // Disabled Custom Reward Schedule 
+        consensus.nSubsidyHalvingInterval = 87600;                 	// TODO : Change to Enabled 0.5 Years a reduction of 20% occurs 
         consensus.nMasternodePaymentsStartBlock = 1;               	// Enabled Not True as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 2100000000;        // Disabled Masternode Payments Increase Block
         consensus.nMasternodePaymentsIncreasePeriod = 2100000000;       // Disabled Masternode Payments Increase Period
