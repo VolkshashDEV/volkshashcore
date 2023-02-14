@@ -174,7 +174,7 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 2100000000;                 // Disabled Custom Reward Schedule 
-        consensus.nMasternodePaymentsStartBlock = 300000;               // Enabled Not True as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsStartBlock = 1;               	// Enabled Not True as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 2100000000;        // Disabled Masternode Payments Increase Block
         consensus.nMasternodePaymentsIncreasePeriod = 2100000000;       // Disabled Masternode Payments Increase Period
         consensus.nInstantSendConfirmationsRequired = 6;                // Enabled Instant Send 
