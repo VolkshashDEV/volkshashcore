@@ -1183,10 +1183,6 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     // 219902.3256 Block Reward = Blocks Required Per Masternode 41.16120453 < Prev Block Height 1587600
     // 175921.8604 Block Reward = Blocks Required Per Masternode 32.92896362 < Prev Block Height 1687600
    
-    // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
-    CAmount nSubsidy = nSubsidyBase * COIN;
-
-
     // Keeping it Static : Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
     // CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
 
