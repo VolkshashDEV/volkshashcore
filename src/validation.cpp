@@ -1160,7 +1160,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     
     CAmount nSubsidy = nSubsidyBase * COIN;
 
-    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
+    for (int i = consensusParams.nSubsidyFiftheningInterval; i <= nPrevHeight; i += consensusParams.nSubsidyFiftheningInterval) {
         nSubsidy -= nSubsidy/1.25;
     }
     // Futureproof VHH nSubsidy to be modified to 1.25 (Block Reward  = 20 % reduction) Every Block 87600 (0.5 Calendar Year)
