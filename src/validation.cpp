@@ -1147,53 +1147,38 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
         but current height to avoid confusion.
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
-{
+
+    {
     double dDiff;
-    CAmount nSubsidyBase = 0;
-    int nHeight = nPrevHeight +1;
+    CAmount nSubsidyBase;
 
-    if((nHeight >       0) & (nHeight <=   1000)) nSubsidyBase =  0;
-    // Slow Start For Miners to connect
-     
-    if((nHeight >   1000) & (nHeight <=   300000)) nSubsidyBase =  5000000;
-    // Time 625 Days 1.7 Years 
-    // Rewardbase Starts Here 
-    
-    
-    // Masternode Cost = 117 Blocks
-      
-    if((nHeight >   300000) & (nHeight <=  600000)) nSubsidyBase =  2500000;
-    // Time 625 Days 1.7 Years 
-    // MasterNode Starts at 300000  
-    // 2x Reduction   
-    // Masternode Cost = 234 Blocks
-        
-    if((nHeight >   600000) & (nHeight <=  900000)) nSubsidyBase =  250000;
-    // Time 625 Days 1.7 Years 
-    // 10x Reduction 
-    // Masternode Cost = 2340 Blocks
-    
-    if((nHeight >   900000) & (nHeight <=  1200000)) nSubsidyBase =  125000;
-    // Time 625 Days 1.7 Years
-    // 2x Reduction
-    // Masternode Cost = 4680 Blocks 
-    
-    if((nHeight >   1200000) & (nHeight <=  12000000)) nSubsidyBase =  12500;
-    // Final Block reward reduction reached - 
-    // 10 x Reduction 
-    // Masternode Costs = 46800 Blocks 
-    
-    
-    if((nHeight >   12000000) & (nHeight <=  12000001)) nSubsidyBase =  50;
-    // Soft Market Cap of VHH 2487500000000 Reached 
-    // Market Cap Reached - Value of nSubsidyBase will be in place to move chain and fees. 
-    // Market Cap will increase 0.00035% Inflation Per Year 
-    // (175200 Blocks Per Year  && VHH 8760000 per year)
-    // 25 x Reduction Final 
-    // Masternode Costs = 11700000 Blocks  
-    
+    nSubsidyBase = 5000000;
 
+    CAmount nSubsidy = nSubsidyBase * COIN;
 
+    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
+        nSubsidy -= nSubsidy/1.25;
+    }
+    // Futureproof VHH nSubsidy to be modified to 1.25 (Block Reward  = 20 % reduction) Every Block 87600 (0.5 Calendar Year)
+    // VHH 2189998625315 M cap Coins   / 585 000 000 = 3743.587394 Masternodes Total 
+    // NOTES 
+    // 5000000 Block Reward = Blocks Required Per Masternode 748.7179487  > Prev Block Height 87600
+    // 4000000 Block Reward = Blocks Required Per Masternode  598.974359 < Prev Block Height 187600
+    // 3200000 Block Reward = Blocks Required Per Masternode  479.1794872 < Prev Block Height 287600
+    // 2560000 Block Reward = Blocks Required Per Masternode  383.3435897 < Prev Block Height 387600
+    // 2048000 Block Reward = Blocks Required Per Masternode  306.6748718 < Prev Block Height 487600
+    // 1638400 Block Reward = Blocks Required Per Masternode  245.3398974 < Prev Block Height 587600
+    // 1310720 Block Reward = Blocks Required Per Masternode  196.2719179 < Prev Block Height 687600
+    // 1048576 Block Reward = Blocks Required Per Masternode  157.0175344 < Prev Block Height 887600
+    // 838860.8 Block Reward = Blocks Required Per Masternode  157.0175344 < Prev Block Height 987600
+    // 671088.64 Block Reward = Blocks Required Per Masternode  125.6140275 < Prev Block Height 1087600
+    // 536870.912 Block Reward = Blocks Required Per Masternode  100.491222 < Prev Block Height 1187600
+    // 429496.7296 Block Reward = Blocks Required Per Masternode  80.39297759 < Prev Block Height 1287600
+    // 343597.3837 Block Reward = Blocks Required Per Masternode  64.31438207 < Prev Block Height 1387600
+    // 274877.9069 Block Reward = Blocks Required Per Masternode  51.45150566 < Prev Block Height 1487600
+    // 219902.3256 Block Reward = Blocks Required Per Masternode 41.16120453 < Prev Block Height 1587600
+    // 175921.8604 Block Reward = Blocks Required Per Masternode 32.92896362 < Prev Block Height 1687600
+   
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
 
