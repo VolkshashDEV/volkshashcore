@@ -814,7 +814,7 @@
         <translation>수령인이 현재 더스트 임계값보다 작은 양을 수신하면 이 라벨이 빨간색으로 변합니다.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 monkey(s) per input.</source>
+        <source>Can vary +/- %1 volkshash(s) per input.</source>
         <translation>입력당 +/- %1 더프가 달라질 수 있습니다.</translation>
     </message>
     <message>
@@ -2813,11 +2813,11 @@ https://www.transifex.com/projects/p/volkshash/</translation>
         <translation>인스턴트샌드</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation>만일 사용자 지정 수수료가 1000 더프로 설정되어 있으나 거래는 250바이트에 불과한 경우, 'KB 당'은 오직 250 더프를 수수료로 지불하는 한편 &lt;br /&gt;'최소'는 1000더프를 지불합니다. 1 KB보다 큰 거래를 진행하는 경우 두 옵션 모두 KB 당으로 지불합니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "total at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "total at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation>만일 사용자 지정 수수료가 1000 더프로 설정되어 있으나 거래는 250바이트에 불과한 경우, 'KB 당'은 250 더프를 수수료로 지불하는 한편, &lt;br /&gt;'전체 최소'는 1000더프를 지불합니다. 1 KB보다 큰 거래를 진행하는 경우 두 옵션 모두 KB 당으로 지불합니다.</translation>
     </message>
     <message>

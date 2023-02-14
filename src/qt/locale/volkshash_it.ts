@@ -814,8 +814,8 @@
         <translation>Questa etichetta diventerà rossa se uno qualsiasi dei destinatari riceverà un importo inferiore alla corrente soglia minima per la movimentazione della valuta.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 monkey(s) per input.</source>
-        <translation>Può variare di +/- %1 monkey per input.</translation>
+        <source>Can vary +/- %1 volkshash(s) per input.</source>
+        <translation>Può variare di +/- %1 volkshash per input.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2813,12 +2813,12 @@ https://www.transifex.com/projects/p/volkshash/</translation>
         <translation>InstantSend</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Se la tariffa personalizzata è impostata su 1000 monkey e la transazione è di soli 250 byte, paga solo 250 monkey "per kilobyte" di Fee, &lt;br /&gt;mentre paga "almeno"  1000 monkey. Per le transazioni più grandi di un kilobyte pagate entrambi per kilobyte.</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Se la tariffa personalizzata è impostata su 1000 volkshash e la transazione è di soli 250 byte, paga solo 250 volkshash "per kilobyte" di Fee, &lt;br /&gt;mentre paga "almeno"  1000 volkshash. Per le transazioni più grandi di un kilobyte pagate entrambi per kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "total at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Se la tariffa personalizzata è impostata su 1000 monkey e la transazione è di soli 250 byte, paga solo 250 monkey "per kilobyte" di Fee, &lt;br /&gt;mentre paga "in totale almeno" 1000 monkey. Per le transazioni più grandi di un kilobyte pagate entrambi per kilobyte.</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "total at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Se la tariffa personalizzata è impostata su 1000 volkshash e la transazione è di soli 250 byte, paga solo 250 volkshash "per kilobyte" di Fee, &lt;br /&gt;mentre paga "in totale almeno" 1000 volkshash. Per le transazioni più grandi di un kilobyte pagate entrambi per kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for volkshash transactions than the network can process.</source>

@@ -814,8 +814,8 @@
         <translation>如果任何一個收款人收到的金額比當前零散錢的閾值還小的話，這個標籤將變為紅色。</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 monkey(s) per input.</source>
-        <translation>每組輸入可能有 +/- %1 個 monkey(s) 的誤差。</translation>
+        <source>Can vary +/- %1 volkshash(s) per input.</source>
+        <translation>每組輸入可能有 +/- %1 個 volkshash(s) 的誤差。</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2813,12 +2813,12 @@ https://www.transifex.com/projects/p/volkshash/</translation>
         <translation>即時到帳</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>如果自訂手續費設定為 1000 monkeys ，而交易資料大小只有 250 個位元組的話，那麽選擇「每千位元組」就只會付 250 monkeys 的手續費，&lt;br /&gt;而「至少」會支付 1000 monkeys。但是如果交易資料大小超過一千個位元組，那麽兩者都是每千位元組的費用。</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>如果自訂手續費設定為 1000 volkshash ，而交易資料大小只有 250 個位元組的話，那麽選擇「每千位元組」就只會付 250 volkshash 的手續費，&lt;br /&gt;而「至少」會支付 1000 volkshash。但是如果交易資料大小超過一千個位元組，那麽兩者都是每千位元組的費用。</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "total at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>如果自訂手續費設定為 1000 monkeys ，而交易資料大小只有 250 個位元組的話，那麽選擇「每千位元組」就只會付 250 monkeys 的手續費，&lt;br /&gt;而「總共至少」會支付 1000 monkeys。但是如果交易資料大小超過一千個位元組，那麽兩者都是每千位元組的費用。</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "total at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>如果自訂手續費設定為 1000 volkshash ，而交易資料大小只有 250 個位元組的話，那麽選擇「每千位元組」就只會付 250 volkshash 的手續費，&lt;br /&gt;而「總共至少」會支付 1000 volkshash。但是如果交易資料大小超過一千個位元組，那麽兩者都是每千位元組的費用。</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for volkshash transactions than the network can process.</source>

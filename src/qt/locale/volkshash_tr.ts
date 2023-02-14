@@ -814,8 +814,8 @@
         <translation>Eğer herhangi bir alıcı mevcut toz eşiğinden daha düşük bir tutar alırsa bu etiket kırmızıya dönüşür.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 monkey(s) per input.</source>
-        <translation>Girdi başına +/- %1 monkey değişebilir.</translation>
+        <source>Can vary +/- %1 volkshash(s) per input.</source>
+        <translation>Girdi başına +/- %1 volkshash değişebilir.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2813,12 +2813,12 @@ https://www.transifex.com/projects/p/volkshash/</translation>
         <translation>Anında Gönder</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Eğer özel ücret 1000 monkey olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 monkey ödersiniz,&lt;br /&gt;bu da "en az" 1000 monkey öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Eğer özel ücret 1000 volkshash olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 volkshash ödersiniz,&lt;br /&gt;bu da "en az" 1000 volkshash öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 monkeys and the transaction is only 250 bytes, then "per kilobyte" only pays 250 monkeys in fee,&lt;br /&gt;while "total at least" pays 1000 monkeys. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Eğer özel ücret 1000 monkey olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 monkey ödersiniz,&lt;br /&gt;bu da "toplam en az" 1000 monkey öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
+        <source>If the custom fee is set to 1000 volkshash and the transaction is only 250 bytes, then "per kilobyte" only pays 250 volkshash in fee,&lt;br /&gt;while "total at least" pays 1000 volkshash. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Eğer özel ücret 1000 volkshash olarak belirlendiyse ve işlem sadece 250 bayt ise "kilobayt başına" ücret olarak sadece 250 volkshash ödersiniz,&lt;br /&gt;bu da "toplam en az" 1000 volkshash öder. Bir kilobayttan büyük işlemler için ikisi de kilobayt başına ödeme yapar.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for volkshash transactions than the network can process.</source>
