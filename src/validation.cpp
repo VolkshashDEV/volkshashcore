@@ -1153,7 +1153,11 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidyBase;
 
     nSubsidyBase = 5000000;
-
+    int nHeight = nPrevHeight +1;
+    //Slow Start 300 Minutes = 5 Hours 
+    if((nHeight >       0) & (nHeight <=   100)) nSubsidyBase =  0;
+    
+    
     CAmount nSubsidy = nSubsidyBase * COIN;
 
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
