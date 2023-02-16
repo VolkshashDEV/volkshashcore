@@ -14,12 +14,24 @@
 /** Amount in satoshis (Can be negative) */
 typedef int64_t CAmount;
 
-static const CAmount COIN = 100000000;
-static const CAmount CENT = 1000000;
+ 
+static const CAmount COIN = 1000;
+static const CAmount CENT = 10;
 
 extern const std::string CURRENCY_UNIT;
 
-/** No amount larger than this (in satoshi) is valid.
+/** 
+ * VOLKSHASH denomination 
+* int64 only allows up to 9,223,372,036,854,775,808 and the total of 219,000,000,000,000,000,000 if 100000000 is used 
+* To prevent a inter64 overflow in the build, Volkshash will not have a 8 denon as standard coins have
+* Fixed to 1 Volkshash = 1000 Volkshash Satoshis 
+* 2190000000000000 Volkhash Satoshis to exist
+* 
+*/
+
+/** 
+ * LEGACY BITCOIN denomination 
+ * No amount larger than this (in satoshi) is valid.
  *
  * Note that this constant is *not* the total money supply, which in Bitcoin
  * currently happens to be less than 21,000,000 BTC for various reasons, but
@@ -28,7 +40,11 @@ extern const std::string CURRENCY_UNIT;
  * critical; in unusual circumstances like a(nother) overflow bug that allowed
  * for the creation of coins out of thin air modification could lead to a fork.
  * */
-static const CAmount MAX_MONEY = 2189998625315 * COIN;
+
+static const CAmount MAX_MONEY = 2190000000000 * COIN;
+// Pushing to the limits 
+// 2190000000000 * 1000 = 2190000000000000
+//                        9223372036854775808 
 inline bool MoneyRange(const CAmount& nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
 /**
