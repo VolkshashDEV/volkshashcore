@@ -20,9 +20,6 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
     unitlist.append(VHH);
-    unitlist.append(mVHH);
-    unitlist.append(uVHH);
-    unitlist.append(volkshash);
     return unitlist;
 }
 
@@ -31,10 +28,7 @@ bool BitcoinUnits::valid(int unit)
     switch(unit)
     {
     case VHH:
-    case mVHH:
-    case uVHH:
-    case volkshash:
-        return true;
+    return true;
     default:
         return false;
     }
@@ -47,9 +41,6 @@ QString BitcoinUnits::name(int unit)
         switch(unit)
         {
             case VHH: return QString("VHH");
-            case mVHH: return QString("mVHH");
-            case uVHH: return QString::fromUtf8("μVHH");
-            case volkshash: return QString("volkshash");
             default: return QString("???");
         }
     }
@@ -58,9 +49,6 @@ QString BitcoinUnits::name(int unit)
         switch(unit)
         {
             case VHH: return QString("tVHH");
-            case mVHH: return QString("mtVHH");
-            case uVHH: return QString::fromUtf8("μtVHH");
-            case volkshash: return QString("tvolkshash");
             default: return QString("???");
         }
     }
@@ -73,9 +61,6 @@ QString BitcoinUnits::description(int unit)
         switch(unit)
         {
             case VHH: return QString("Volkshash");
-            case mVHH: return QString("Milli-Volkshash (1 / 1" THIN_SP_UTF8 "000)");
-            case uVHH: return QString("Micro-Volkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case volkshash: return QString("Ten Nano-Volkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -84,9 +69,6 @@ QString BitcoinUnits::description(int unit)
         switch(unit)
         {
             case VHH: return QString("TestVolkshashs");
-            case mVHH: return QString("Milli-TestVolkshash (1 / 1" THIN_SP_UTF8 "000)");
-            case uVHH: return QString("Micro-TestVolkshash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case volkshash: return QString("Ten Nano-TestVolkshash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -96,11 +78,8 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case VHH:  return 100000000;
-    case mVHH: return 100000;
-    case uVHH: return 100;
-    case volkshash: return 1;
-    default:   return 100000000;
+    case VHH:  return 1000;
+    default:   return 1000;
     }
 }
 
@@ -108,10 +87,7 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case VHH: return 8;
-    case mVHH: return 5;
-    case uVHH: return 2;
-    case volkshash: return 0;
+    case VHH: return 3;
     default: return 0;
     }
 }
