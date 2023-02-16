@@ -1,5 +1,4 @@
-// Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2023 The Volkshash Core Developers
+// Copyright (c) 2014-2018 The Dash Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,16 +17,16 @@ static const int DENOMS_COUNT_MAX = 100;
 
 static const int MIN_PRIVATESEND_SESSIONS = 1;
 static const int MIN_PRIVATESEND_ROUNDS = 2;
-static const int MIN_PRIVATESEND_AMOUNT = 10000;
+static const int MIN_PRIVATESEND_AMOUNT = 10030;
 static const int MIN_PRIVATESEND_LIQUIDITY = 0;
 static const int MAX_PRIVATESEND_SESSIONS = 10;
 static const int MAX_PRIVATESEND_ROUNDS = 16;
-// 600000000000 / 1000 =VHH 600 000 000 Max private send -
-static const int MAX_PRIVATESEND_AMOUNT = 600000000000 / COIN;
+// 1000000000 / 1000 =VHH 1 000 000 Max private send -
+static const int MAX_PRIVATESEND_AMOUNT = 1000000000 / COIN;
 static const int MAX_PRIVATESEND_LIQUIDITY = 100;
 static const int DEFAULT_PRIVATESEND_SESSIONS = 4;
 static const int DEFAULT_PRIVATESEND_ROUNDS = 4;
-static const int DEFAULT_PRIVATESEND_AMOUNT = 10000;
+static const int DEFAULT_PRIVATESEND_AMOUNT = 10030;
 static const int DEFAULT_PRIVATESEND_LIQUIDITY = 0;
 
 static const bool DEFAULT_PRIVATESEND_MULTISESSION = false;
