@@ -340,7 +340,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 2100000000;
+        consensus.nSubsidyFiftheningInterval = 2100000000;
         consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
         consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
@@ -498,7 +498,7 @@ class CDevNetParams : public CChainParams {
 public:
     CDevNetParams() {
         strNetworkID = "dev";
-        consensus.nSubsidyHalvingInterval = 2100000000; // Custom Reward Schedule 
+        consensus.nSubsidyFiftheningInterval = 2100000000; // Custom Reward Schedule 
         consensus.nMasternodePaymentsStartBlock = 2100000000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
         consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
         consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
@@ -649,7 +649,7 @@ class CRegTestParams : public CChainParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
-        consensus.nSubsidyHalvingInterval = 150;
+        consensus.nSubsidyFiftheningInterval = 150;
         consensus.nMasternodePaymentsStartBlock = 1000;
         consensus.nMasternodePaymentsIncreaseBlock = 2100000000;
         consensus.nMasternodePaymentsIncreasePeriod = 2100000000;
