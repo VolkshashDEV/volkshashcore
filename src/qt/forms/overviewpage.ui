@@ -76,7 +76,7 @@
                <string notr="true">QLabel { color: red; }</string>
               </property>
               <property name="text">
-               <string notr="true">(out of sync)</string>
+               <string notr="true">(volkshash wallet is currently out of sync)</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -207,7 +207,7 @@
             <item row="5" column="0">
              <widget class="QLabel" name="labelTotalText">
               <property name="text">
-               <string>Total:</string>
+               <string>Total Volkshash Balance:</string>
               </property>
              </widget>
             </item>
@@ -319,7 +319,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="labelBalanceText">
               <property name="text">
-               <string>Available:</string>
+               <string>Available Volkshash Balance:</string>
               </property>
              </widget>
             </item>
@@ -376,14 +376,14 @@
             <item row="2" column="0">
              <widget class="QLabel" name="labelPendingText">
               <property name="text">
-               <string>Pending:</string>
+               <string>Pending Volkshash Balance::</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
              <widget class="QLabel" name="labelSpendable">
               <property name="text">
-               <string>Spendable:</string>
+               <string>Spendable Volkshash Balance::</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -418,7 +418,7 @@
                </font>
               </property>
               <property name="text">
-               <string>PrivateSend</string>
+               <string>PrivateSend Volkshash Mixer:</string>
               </property>
              </widget>
             </item>
@@ -431,7 +431,7 @@
                <string notr="true">QLabel { color: red; }</string>
               </property>
               <property name="text">
-               <string notr="true">(out of sync)</string>
+               <string notr="true">(volkshash wallet is currently out of sync)</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -676,7 +676,7 @@
                </font>
               </property>
               <property name="text">
-               <string>Recent transactions</string>
+               <string>Recent transactions made on Volkshash</string>
               </property>
              </widget>
             </item>
@@ -689,7 +689,7 @@
                <string notr="true">QLabel { color: red; }</string>
               </property>
               <property name="text">
-               <string notr="true">(out of sync)</string>
+               <string notr="true">(volkshash wallet is currently out of sync)</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
