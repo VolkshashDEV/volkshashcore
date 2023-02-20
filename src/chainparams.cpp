@@ -260,7 +260,7 @@ public:
                                                                         // peerMagic Mainet Combined :deadf1b1  
         
         vAlertPubKey = ParseHex("04495dd254658385071f8fa34a8ed86166cf60cafeb52f9535029bb7a3eb6dd159811d7911ca2b25a39b4d4b30a2e502fa6491ecfed381dd4f03cd50b4617fbd92");
-        nDefaultPort = 32123;           
+        nDefaultPort = 7374 ;           
         nPruneAfterHeight = 100000;
 
         // Creation Of The Genesis Rules
@@ -416,7 +416,7 @@ public:
 
 
         vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
-        nDefaultPort = 42123;
+        nDefaultPort = 17374;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1670440400, 15719, 0x1f00ffff, 1, 50 * COIN);
@@ -567,7 +567,7 @@ public:
 									                                    // Used By NOMP / POOLS
                                                                         // peerMagic DevNet Combined :e2caffce  
         vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
-        nDefaultPort = 42123;
+        nDefaultPort = 27374;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1670440350, 1, 0x207fffff, 1, 50 * COIN);
@@ -701,7 +701,7 @@ public:
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        nDefaultPort = 52123;
+        nDefaultPort = 37374;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1670440200, 0, 0x2100ffff, 1, 50 * COIN);
