@@ -1206,13 +1206,13 @@ CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 }
 
 
-    // Masternode Reward  : Blockvalue * 0.05 = 5% Start from block 300000
+    // Masternode Reward  : Blockvalue * 0.05 = 5% Start from block 150000
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret = 0.05;
     int nMNPBlock = Params().GetConsensus().nMasternodePaymentsStartBlock;
 
-    if((nHeight >       0) & (nHeight <= 300000)) ret = blockValue * 0.00;
+    if((nHeight >       0) & (nHeight <= 150000)) ret = blockValue * 0.00;
    
     return ret;
 }
