@@ -260,7 +260,7 @@ public:
                                                                         // peerMagic Mainet Combined :deadf1b1  
         
         vAlertPubKey = ParseHex("04495dd254658385071f8fa34a8ed86166cf60cafeb52f9535029bb7a3eb6dd159811d7911ca2b25a39b4d4b30a2e502fa6491ecfed381dd4f03cd50b4617fbd92");
-        nDefaultPort = 7374 ;           
+        nDefaultPort = 7374;           
         nPruneAfterHeight = 100000;
 
         // Creation Of The Genesis Rules
