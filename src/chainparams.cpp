@@ -199,7 +199,7 @@ public:
         consensus.BIP66Height = 0;                                      // BIP 66                   Start Block 0
         consensus.DIP0001Height = 0;                                    // DIP0001                  Start Block 0
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Pow Limit  
-        consensus.nPowTargetTimespan = 3 * 60 * 60;                     // Volkshash: Every 100 Blocks 
+        consensus.nPowTargetTimespan = 3 * 60 * 60;                     // Volkshash: Every 60 Blocks 
         consensus.nPowTargetSpacing = 3 * 60;                           // Volkshash: 3 Minute Block Time 
         consensus.fPowAllowMinDifficultyBlocks = false;                 // Disabled Pow Allow Min Difficulty Blocks
 
@@ -260,7 +260,7 @@ public:
                                                                         // peerMagic Mainet Combined :deadf1b1  
         
         vAlertPubKey = ParseHex("04495dd254658385071f8fa34a8ed86166cf60cafeb52f9535029bb7a3eb6dd159811d7911ca2b25a39b4d4b30a2e502fa6491ecfed381dd4f03cd50b4617fbd92");
-        nDefaultPort = 7374;           
+        nDefaultPort = 17374;           
         nPruneAfterHeight = 100000;
 
         // Creation Of The Genesis Rules
