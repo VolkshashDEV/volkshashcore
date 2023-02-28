@@ -1191,28 +1191,26 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     return nSubsidy;
 }
 
-    // Volkshash Developement Fund Reward  : Blockvalue * 0.03 = 3% Start from block 100
+    // Volkshash Developement Fund Reward  : Blockvalue * 0.03 = 3% Start from block 1
 CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 
-    int nFounderFee = 0.3;
-    //Slow Start 300 Minutes = 5 Hours 
-    if((nHeight >       0) & (nHeight <=   100)) nFounderFee = blockValue * 0.00;
-  
-
-
-// LogPrintf("GetFounderPayment -- nHeight:%d, reward:%d, founder:%.3f \n",nHeight, blockValue/COIN, nFounderFee/COIN );
+    //Setting Founder Fee to start from block 1 
+    int nFounderFee = 0.03;
+   
+    // LogPrintf("GetFounderPayment -- nHeight:%d, reward:%d, founder:%.3f \n",nHeight, blockValue/COIN, nFounderFee/COIN );
 
     return nFounderFee;
 }
 
-
+    // Slow Start Adjusted Update to allow masternodes to be launched but value is only set to 1 as reward till block 150000 
+    // NOTE Block Value * 0 = 0
     // Masternode Reward  : Blockvalue * 0.05 = 5% Start from block 150000
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret = 0.05;
     int nMNPBlock = Params().GetConsensus().nMasternodePaymentsStartBlock;
 
-    if((nHeight >       0) & (nHeight <= 150000)) ret = blockValue * 0.00;
+    if((nHeight >       0) & (nHeight <= 150000)) ret = blockValue * 0.0000002;
    
     return ret;
 }
