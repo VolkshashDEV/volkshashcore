@@ -319,7 +319,9 @@ UniValue stop(const JSONRPCRequest& jsonRequest)
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "Volkshash Core server stopping";
+       return "Volkshash Core server stopping \n ####              ####    #### 	\n  ####            ####    ####   	\n   ####     ###################### \n    ####    ######################	\n     ####      ####    ####    	\n       ########################  	\n        ########################	\n         #######   ####     	\n          ####    ####     	\n           ##    ####      	";
+
+//some one-line art for yall
 }
 
 /**
