@@ -717,6 +717,8 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     result.push_back(Pair("bits", strprintf("%08x", pblock->nBits)));
     result.push_back(Pair("previousbits", strprintf("%08x", pblocktemplate->nPrevBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
+    //Static Value Added - Placeholder 
+    result.push_back(Pair("volkshashstaticfee", "100000"));
 
     // Added founder's reward, by volkshashHG
     CAmount blockValue = (int64_t)pblock->vtx[0]->GetValueOut();
