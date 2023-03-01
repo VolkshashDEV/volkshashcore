@@ -193,19 +193,19 @@ public:
         consensus.nGovernanceMinQuorum = 10;                            // Quorum TODO future 
         consensus.nGovernanceFilterElements = 20000;                    // Governance Filter Elements
         consensus.nMasternodeMinimumConfirmations = 15;                 // Enabled Masternode Minimum Confirmations
-        consensus.BIP34Height = 0;                                      // BIP 34                   Start Block 0
-        consensus.BIP34Hash = uint256();                                // TODO add BIP 34
-        consensus.BIP65Height = 0;                                      // BIP 65                   Start Block 0
-        consensus.BIP66Height = 0;                                      // BIP 66                   Start Block 0
-        consensus.DIP0001Height = 0;                                    // DIP0001                  Start Block 0
+        consensus.BIP34Height = 34;                                     // BIP 34                   Start Block 34
+        consensus.BIP34Hash = uint256();                                // TODO add BIP 34 HASH
+        consensus.BIP65Height = 65;                                     // BIP 65                   Start Block 65
+        consensus.BIP66Height = 66;                                     // BIP 66                   Start Block 66
+        consensus.DIP0001Height = 1;                                    // DIP0001                  Start Block 1
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Pow Limit  
         consensus.nPowTargetTimespan = 3 * 60 * 60;                     // Volkshash: Every 60 Blocks 
         consensus.nPowTargetSpacing = 3 * 60;                           // Volkshash: 3 Minute Block Time 
         consensus.fPowAllowMinDifficultyBlocks = false;                 // Disabled Pow Allow Min Difficulty Blocks
 
         consensus.fPowNoRetargeting = false;                            // Disabled Pow No Retarget
-        consensus.nPowKGWHeight = 0;                                    // Kimoto's Gravity Well Legacy Starts and Ends on Block 0
-        consensus.nPowDGWHeight = 0;                                    // Dark Gravity Wave Start Starts on Block 0
+        consensus.nPowKGWHeight = 1;                                    // Kimoto's Gravity Well Legacy Starts and Ends on Block 0
+        consensus.nPowDGWHeight = 1;                                    // Dark Gravity Wave Start Starts on Block 0
         
         consensus.nRuleChangeActivationThreshold = 1916;                // Ancient Deploy Rules: Keeping As Ref:   95% of 2016
         consensus.nMinerConfirmationWindow = 2016;                      // Ancient Deploy Rules: nPowTargetTimespan / nPowTargetSpacing
@@ -357,11 +357,11 @@ public:
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
-        consensus.BIP34Height = 0;
+        consensus.BIP34Height = 34;
         consensus.BIP34Hash = uint256();
-        consensus.BIP65Height = 0;
-        consensus.BIP66Height = 0;
-        consensus.DIP0001Height = 0;
+        consensus.BIP65Height = 65;
+        consensus.BIP66Height = 66;
+        consensus.DIP0001Height = 1;
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 1 * 60 * 60; // Volkshash: 1 hour
         consensus.nPowTargetSpacing = 1 * 60;       // Volkshash: 1 minutes
