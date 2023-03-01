@@ -1156,7 +1156,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     nSubsidyBase = 5000000;
     int nHeight = nPrevHeight +1;
     //Slow Start 300 Minutes = 5 Hours 
-    if((nHeight >       0) & (nHeight <=   100)) nSubsidyBase =  0;
+    //MINOR UPDATE nSubsidy to allow Masternode blockValue * 0.0000002 = VHH0.001 , need to have this in place for the block creation logic 
+    //NOTE The reason for the change is for NOMP logic as the fee on getblocktemplate changed to NULL / unable to find "fee"
+    if((nHeight >       0) & (nHeight <=   100)) nSubsidyBase =  5000;
     
     
     CAmount nSubsidy = nSubsidyBase * COIN;
@@ -1205,6 +1207,8 @@ CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
     // Slow Start Adjusted Update to allow masternodes to be launched but value is only set to 1 as reward till block 150000 
     // NOTE Block Value * 0 = 0
     // Masternode Reward  : Blockvalue * 0.05 = 5% Start from block 150000
+    // MINOR UPDATE nSubsidy to allow Masternode blockValue * 0.0000002 = VHH0.001 , need to have this in place for the block creation logic 
+    // NOTE The reason for the change is for NOMP logic as the fee on getblocktemplate changed to NULL / unable to find "fee"
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret = 0.05;
