@@ -1197,7 +1197,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
 
     //Setting Founder Fee to start from block 1 
-    int nFounderFee = 0.03;
+    int nFounderFee = blockValue * 0.03;
    
     // LogPrintf("GetFounderPayment -- nHeight:%d, reward:%d, founder:%.3f \n",nHeight, blockValue/COIN, nFounderFee/COIN );
 
@@ -1211,7 +1211,7 @@ CAmount GetFounderPayment(int nHeight, CAmount blockValue) {
     // NOTE The reason for the change is for NOMP logic as the fee on getblocktemplate changed to NULL / unable to find "fee"
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    CAmount ret = 0.05;
+    CAmount ret = blockValue * 0.05;
     int nMNPBlock = Params().GetConsensus().nMasternodePaymentsStartBlock;
 
     if((nHeight >       0) & (nHeight <= 150000)) ret = blockValue * 0.0000002;
