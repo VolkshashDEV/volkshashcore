@@ -1164,9 +1164,10 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidy = nSubsidyBase * COIN;
 
     for (int i = consensusParams.nSubsidyFiftheningInterval; i <= nPrevHeight; i += consensusParams.nSubsidyFiftheningInterval) {
-        nSubsidy -= nSubsidy/1.25;
+        nSubsidy -= nSubsidy/5;
     }
-    // Futureproof VHH nSubsidy to be modified to 1.25 (Block Reward  = 20 % reduction) Every Block 87600 (0.5 Calendar Year)
+    // How the FiftheningInterval works nSubsidyBase 5000000 - (nSubsidy/5) = VHH 4 000 00
+    // Futureproof VHH nSubsidy to be modified to 5 (Block Reward  = 20 % reduction) Every Block 87600 (0.5 Calendar Year)
     // VHH 2189998625315 M cap Coins   / 585 000 000 = 3743.587394 Masternodes Total 
     // NOTES 
     // 5000000 Block Reward = Blocks Required Per Masternode 748.7179487  > Prev Block Height 87600
