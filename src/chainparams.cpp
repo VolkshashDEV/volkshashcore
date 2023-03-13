@@ -329,7 +329,7 @@ public:
         };
 
                                         // Developement Fee Reward at 3 %
-        strFounderAddress = "VHashBurnGXXXXXXXXXXXXXXXXXXUVXsg2";
+        strFounderAddress = "VTQm6cWqEmc85168N2Ag8PtdC3emvcEyaL";
         dFounderFee = 0.03;             //Active from Block 100
 
     }
