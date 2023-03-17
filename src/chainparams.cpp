@@ -271,11 +271,11 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669"));
 
         // Seeds and Nodes for Volkshash 
-        vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "explorer.volkshash.org"));
-	//TODO  Seeds Temp Solution for Nodes early start . Seeder to be launched a bit later 
-        vSeeds.push_back(CDNSSeedData("102.219.85.134", "102.219.85.87"));
-	vSeeds.push_back(CDNSSeedData("147.135.211.28", "102.219.85.87"));
+        vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "102.219.85.87"));
+	vSeeds.push_back(CDNSSeedData("explorer.volkshash.org", "102.219.85.134"));    
+	vSeeds.push_back(CDNSSeedData("dns.volkshash.org", "147.135.211.28"));     
 	    
+
 	    
 
         // VolkshashMainent addresses start with 'V'
