@@ -275,7 +275,9 @@ public:
         vSeeds.push_back(CDNSSeedData("pool.volkshash.org", "explorer.volkshash.org"));
 	//TODO  Seeds Temp Solution for Nodes early start . Seeder to be launched a bit later 
         vSeeds.push_back(CDNSSeedData("102.219.85.134", "102.219.85.87"));
-
+	vSeeds.push_back(CDNSSeedData("147.135.211.28", "102.219.85.87"));
+	    
+	    
 
         // VolkshashMainent addresses start with 'V'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,70);
