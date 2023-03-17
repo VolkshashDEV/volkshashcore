@@ -153,22 +153,21 @@ static Consensus::LLMQParams llmq400_85 = {
 
 //Transaction Records of Genesisblocks 
 
-   //main ---
-  // nonce: 139786
-  // time: 1670440473
-  // MAIN NET hash: 0000035502f6f464645ff5caa344484f01089f2020712fbd76b79a82ed92d91f
-//merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
-
-//test ---
- // nonce: 15719
-  // time: 1670440400
- //  TEST NET hash: 000009dc62e5bc38bae3e5fa53b5e667c06a2066d32c12343d76bc540772b732
-// merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
-//regtest ---
-  //nonce: 0
-   //time: 1670440200
-   //REG NET hash: f824752aa49a98228a86b65acd7b0c72c7e86d9a94107d158825a7c243c33083
-   //merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
+									//Mainet Genesis 
+									//nonce: 139786
+									//time: 1670440473
+									//MAIN NET hash: 0000035502f6f464645ff5caa344484f01089f2020712fbd76b79a82ed92d91f
+									//merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
+									//Testnet Genesis 
+									//nonce: 15719
+									//time: 1670440400
+									//TEST NET hash: 000009dc62e5bc38bae3e5fa53b5e667c06a2066d32c12343d76bc540772b732
+									//merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
+									//Regtest Genesis 
+									//nonce: 0
+									//time: 1670440200
+									//REG NET hash: f824752aa49a98228a86b65acd7b0c72c7e86d9a94107d158825a7c243c33083
+									//merklehash: 7a49746bd2b2105991efd1529ae3f1ebf9e9eb392f163eec5bf69bf67673f669
 
 
    
@@ -567,8 +566,8 @@ public:
         pchMessageStart[2] = 0xff; // peerMagic
         pchMessageStart[3] = 0xce; // peerMagic
 
-									                                    // Used By NOMP / POOLS
-                                                                        // peerMagic DevNet Combined :e2caffce  
+									                        // Used By NOMP / POOLS
+                                                                        			// peerMagic DevNet Combined :e2caffce  
         vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
         nDefaultPort = 27374;
         nPruneAfterHeight = 1000;
