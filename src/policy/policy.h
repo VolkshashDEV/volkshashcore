@@ -20,7 +20,11 @@ static const unsigned int DEFAULT_BLOCK_MAX_SIZE = 2000000;
 static const unsigned int DEFAULT_BLOCK_PRIORITY_SIZE = 10000; // was 50000 in 0.12.0 and it is 0 in Bitcoin since 0.12
 /** Default for -blockmintxfee, which sets the minimum feerate for a transaction in blocks created by mining code **/
 static const unsigned int DEFAULT_BLOCK_MIN_TX_FEE = 1000;
-/** The maximum size for transactions we're willing to relay/mine */
+/** The maximum size for transactions we're willing to relay/mine */.
+
+//22/03/2023 MEMPOOL ISSUE HARDFORK 
+//static const unsigned int MAX_STANDARD_TX_SIZE = 250000;
+
 static const unsigned int MAX_STANDARD_TX_SIZE = 100000;
 /** Maximum number of signature check operations in an IsStandard() P2SH script */
 static const unsigned int MAX_P2SH_SIGOPS = 15;
@@ -29,12 +33,20 @@ static const unsigned int MAX_STANDARD_TX_SIGOPS = 4000;
 /** Default for -maxmempool, maximum megabytes of mempool memory usage */
 static const unsigned int DEFAULT_MAX_MEMPOOL_SIZE = 300;
 /** Default for -incrementalrelayfee, which sets the minimum feerate increase for mempool limiting or BIP 125 replacement **/
+
+//22/03/2023 MEMPOOL ISSUE HARDFORK 
+//static const unsigned int DEFAULT_INCREMENTAL_RELAY_FEE = 5;
+
 static const unsigned int DEFAULT_INCREMENTAL_RELAY_FEE = 1000;
 /** Min feerate for defining dust. Historically this has been the same as the
  * minRelayTxFee, however changing the dust limit changes which transactions are
  * standard and should be done with care and ideally rarely. It makes sense to
  * only increase the dust limit after prior releases were already not creating
  * outputs below the new threshold */
+ 
+//22/03/2023 MEMPOOL ISSUE HARDFORK 
+//static const unsigned int DUST_RELAY_TX_FEE = 5;
+
 static const unsigned int DUST_RELAY_TX_FEE = 1000;
 /**
  * Standard script verification flags that standard transactions will comply
