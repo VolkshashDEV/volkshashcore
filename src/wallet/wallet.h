@@ -53,14 +53,16 @@ static const CAmount DEFAULT_TRANSACTION_FEE = 0;
 //! -fallbackfee default
 static const CAmount DEFAULT_FALLBACK_FEE = 1000;
 //! -mintxfee default
+
 //22/03/2023 MEMPOOL ISSUE HARDFORK 
-//static const CAmount DEFAULT_TRANSACTION_MINFEE = 1000;
-static const CAmount DEFAULT_TRANSACTION_MINFEE = 100000;
+static const CAmount DEFAULT_TRANSACTION_MINFEE = 1000;
+//static const CAmount DEFAULT_TRANSACTION_MINFEE = 100000;
 //! minimum recommended increment for BIP 125 replacement txs
 
 //22/03/2023 MEMPOOL ISSUE HARDFORK 
-//static const CAmount WALLET_INCREMENTAL_RELAY_FEE = 10;
-static const CAmount WALLET_INCREMENTAL_RELAY_FEE = 1000;
+static const CAmount WALLET_INCREMENTAL_RELAY_FEE = 10;
+//static const CAmount WALLET_INCREMENTAL_RELAY_FEE = 1000;
+
 //! target minimum change amount
 static const CAmount MIN_CHANGE = CENT;
 //! final minimum change amount after paying for fees

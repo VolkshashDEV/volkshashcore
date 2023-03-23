@@ -58,20 +58,18 @@ static const bool DEFAULT_WHITELISTRELAY = true;
 static const bool DEFAULT_WHITELISTFORCERELAY = true;
 /** Default for -minrelaytxfee, minimum relay fee for transactions */
 //22/03/2023 MEMPOOL ISSUE HARDFORK 
-
-
-// static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 1000;
-static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 100000;
+static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 1000;
+//static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 100000;
 //! -maxtxfee default
 
 //22/03/2023 MEMPOOL ISSUE HARDFORK 
-// static const CAmount DEFAULT_TRANSACTION_MAXFEE = 1000000 * COIN;
-static const CAmount DEFAULT_TRANSACTION_MAXFEE = 1000 * COIN;
+static const CAmount DEFAULT_TRANSACTION_MAXFEE = 1000000 * COIN;
+//static const CAmount DEFAULT_TRANSACTION_MAXFEE = 1000 * COIN;
 //! Discourage users to set fees higher than this amount  per kB
 
 //22/03/2023 MEMPOOL ISSUE HARDFORK 
-//static const CAmount HIGH_TX_FEE_PER_KB = 1000000 * COIN;
-static const CAmount HIGH_TX_FEE_PER_KB = 100 * COIN;
+static const CAmount HIGH_TX_FEE_PER_KB = 1000000 * COIN;
+//static const CAmount HIGH_TX_FEE_PER_KB = 100 * COIN;
 //! -maxtxfee will warn if called with a higher fee than this amount
 static const CAmount HIGH_MAX_TX_FEE = 100 * HIGH_TX_FEE_PER_KB;
 /** Default for -limitancestorcount, max number of in-mempool ancestors */

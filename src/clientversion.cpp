@@ -13,7 +13,7 @@
  * for both volkshashd and volkshash-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Volkshash Core");
+const std::string CLIENT_NAME("Volkshash Core - HOTPATCH VERSION");
 
 /**
  * Client version number
