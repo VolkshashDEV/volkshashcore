@@ -206,38 +206,40 @@ public:
         consensus.nPowKGWHeight = 1;                                    // Kimoto's Gravity Well Legacy Starts and Ends on Block 0
         consensus.nPowDGWHeight = 1;                                    // Dark Gravity Wave Start Starts on Block 0
         
-        consensus.nRuleChangeActivationThreshold = 1916;                // Ancient Deploy Rules: Keeping As Ref:   95% of 2016
-        consensus.nMinerConfirmationWindow = 2016;                      // Ancient Deploy Rules: nPowTargetTimespan / nPowTargetSpacing
+	    
+	    //TODO LIST DIP DEPLOYMENTS For Masternode BP9 Needs to be set. 
+        consensus.nRuleChangeActivationThreshold = 1916;                // Deploy Rules: Keeping As Ref:   95% of 2016
+        consensus.nMinerConfirmationWindow = 2016;                      // Deploy Rules: nPowTargetTimespan / nPowTargetSpacing
                 
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;        // Ancient Deploy Rules: January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;          // Ancient Deploy Rules: December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;        // Deploy Rules: January 1, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;          // Deploy Rules: December 31, 2008
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800;              // Ancient Deploy Rules: Feb 5th, 2017 
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800;                // Ancient Deploy Rules: Feb 5th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800;              // Deploy Rules: Feb 5th, 2017 
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800;                // Deploy Rules: Feb 5th, 2018
 
         // Deployment of DIP0001
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1508025600;          // Ancient Deploy Rules: Oct 15th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1539561600;            // Ancient Deploy Rules: Oct 15th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nStartTime = 1508025600;          // Deploy Rules: Oct 15th, 2017
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nTimeout = 1539561600;            // Deploy Rules: Oct 15th, 2018
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226;                // Ancient Deploy Rules: 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226;                // Deploy Rules: 80% of 4032
 
         // Deployment of BIP147
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1524477600;           // Ancient Deploy Rules: Apr 23th, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1556013600;             // Ancient Deploy Rules: Apr 23th, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1524477600;           // Deploy Rules: Apr 23th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1556013600;             // Deploy Rules: Apr 23th, 2019
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226;                 // Ancient Deploy Rules: 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226;                 // Deploy Rules: 80% of 4032
 
         // Deployment of DIP0003
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].bit = 3;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1546300800;          // Ancient Deploy Rules: Jan 1st, 2019
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1577836800;            // Ancient Deploy Rules: Jan 1st, 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nStartTime = 1546300800;          // Deploy Rules: Jan 1st, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nTimeout = 1577836800;            // Deploy Rules: Jan 1st, 2020
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 3226;                // Ancient Deploy Rules: 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 3226;                // Deploy Rules: 80% of 4032
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
