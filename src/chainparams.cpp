@@ -420,7 +420,7 @@ public:
 
 
         vAlertPubKey = ParseHex("04835db5e87fd67aa638e06d9de344a6bba384e1ae85473ca6515dacd183a6bce2e04e6e0e5619a343ee48ec318367fabf4cc57fc8ea36adccd20bcdd0c08c9a2f");
-        nDefaultPort = 17374;
+        nDefaultPort = 27374;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1670440400, 15719, 0x1f00ffff, 1, 50 * COIN);
