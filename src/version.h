@@ -25,7 +25,7 @@ static const int GETHEADERS_VERSION = 70077;
 
 //! disconnect from peers older than this proto version
 //Prepping for protocol update 0.13.2.4
-//static const int PROTOCOL_VERSION = 70214; 0.13.2.4
+//static const int PROTOCOL_VERSION = 70213; 0.13.2.4
 static const int MIN_PEER_PROTO_VERSION = 70210;
 
 //! disconnect from peers older than this proto version when DIP3 is activated via the BIP9 deployment
